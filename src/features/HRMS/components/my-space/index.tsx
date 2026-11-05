@@ -1,0 +1,11 @@
+export { default as WorkTab } from './WorkTab';
+export { default as ExperienceTab } from './ExperienceTab';
+export { default as AttendanceTab } from './AttendanceTab';
+export { default as LeavesTab } from './LeavesTab';
+export { default as PayslipsTab } from './PayslipsTab';
+export { default as AssetsTab } from './AssetsTab';
+export { default as EducationTab } from './EducationTab';
+export { default as ContactTab } from './ContactTab';
+export { default as IdentityTab } from './IdentityTab';
+export { default as DocumentsTab } from './DocumentsTab';
+export { default as AcknowledgementsTab } from './AcknowledgementsTab';

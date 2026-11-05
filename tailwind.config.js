@@ -1,0 +1,86 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  darkMode: 'class',
+  theme: {
+    screens: {
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px',
+      '3xl': '1440px', // Custom breakpoint for container behavior
+    },
+    extend: {
+      fontFamily: {
+        montserrat: ['Montserrat', 'sans-serif'],
+        'montserrat-thin': ['Montserrat', 'sans-serif'],
+        'montserrat-light': ['Montserrat', 'sans-serif'],
+        'montserrat-normal': ['Montserrat', 'sans-serif'],
+        'montserrat-medium': ['Montserrat', 'sans-serif'],
+        'montserrat-semibold': ['Montserrat', 'sans-serif'],
+        'montserrat-bold': ['Montserrat', 'sans-serif'],
+        'montserrat-extrabold': ['Montserrat', 'sans-serif'],
+        'montserrat-black': ['Montserrat', 'sans-serif'],
+      },
+      fontWeight: {
+        'montserrat-thin': '100',
+        'montserrat-extralight': '200',
+        'montserrat-light': '300',
+        'montserrat-normal': '400',
+        'montserrat-medium': '500',
+        'montserrat-semibold': '600',
+        'montserrat-bold': '700',
+        'montserrat-extrabold': '800',
+        'montserrat-black': '900',
+      },
+      colors: {
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
+        ring: 'hsl(var(--ring))',
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        primary: {
+          DEFAULT: 'hsl(var(--primary))',
+          foreground: 'hsl(var(--primary-foreground))',
+        },
+        secondary: {
+          DEFAULT: 'hsl(var(--secondary))',
+          foreground: 'hsl(var(--secondary-foreground))',
+        },
+        destructive: {
+          DEFAULT: 'hsl(var(--destructive))',
+          foreground: 'hsl(var(--destructive-foreground))',
+        },
+        muted: {
+          DEFAULT: 'hsl(var(--muted))',
+          foreground: 'hsl(var(--muted-foreground))',
+        },
+        accent: {
+          DEFAULT: 'hsl(var(--accent))',
+          foreground: 'hsl(var(--accent-foreground))',
+        },
+        popover: {
+          DEFAULT: 'hsl(var(--popover))',
+          foreground: 'hsl(var(--popover-foreground))',
+        },
+        card: {
+          DEFAULT: 'hsl(var(--card))',
+          foreground: 'hsl(var(--card-foreground))',
+        },
+        navbar: {
+          bg: 'hsl(var(--navbar-bg))',
+          'bg-hover': 'hsl(var(--navbar-bg-hover))',
+          text: 'hsl(var(--navbar-text))',
+          'text-hover': 'hsl(var(--navbar-text-hover))',
+        },
+      },
+      borderRadius: {
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)',
+      },
+    },
+  },
+  plugins: [],
+};

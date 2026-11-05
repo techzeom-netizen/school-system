@@ -1,0 +1,102 @@
+import {
+  LayoutDashboard,
+  CreditCard,
+  Users,
+  ArrowUpDown,
+  Building2,
+  BarChart3,
+  HelpCircle,
+  Settings,
+  FileText,
+  Search,
+  Bell,
+  Moon,
+  Sun,
+  ChevronDown,
+  Menu,
+  X,
+  LogOut,
+  User,
+  Plus,
+  PlusCircle,
+  Edit,
+  Trash2,
+  Save,
+  Check,
+  AlertCircle,
+  Info,
+  ArrowRight,
+  ArrowLeft,
+  MessageCircle,
+  Mail,
+  Home,
+  MapPin,
+  List,
+  UserPlus,
+  Building,
+  Shield,
+  Palette,
+  Globe,
+  Image,
+  CheckCircle,
+  Database,
+  type LucideIcon,
+} from 'lucide-react';
+
+// Icon mapping for dynamic icon rendering
+export const iconMap: Record<string, LucideIcon> = {
+  LayoutDashboard,
+  CreditCard,
+  Users,
+  ArrowUpDown,
+  Building2,
+  BarChart3,
+  HelpCircle,
+  Settings,
+  FileText,
+  Search,
+  Bell,
+  Moon,
+  Sun,
+  ChevronDown,
+  Menu,
+  X,
+  LogOut,
+  User,
+  Plus,
+  PlusCircle,
+  Edit,
+  Trash2,
+  Save,
+  Check,
+  AlertCircle,
+  Info,
+  ArrowRight,
+  ArrowLeft,
+  MessageCircle,
+  Mail,
+  Home,
+  MapPin,
+  List,
+  UserPlus,
+  Building,
+  Shield,
+  Palette,
+  Globe,
+  Image,
+  CheckCircle,
+  Database,
+};
+
+/**
+ * Get icon component by name
+ */
+export function getIcon(iconName: string, className = 'w-4 h-4') {
+  const IconComponent = iconMap[iconName];
+  if (!IconComponent) {
+    // eslint-disable-next-line no-console
+    console.warn(`Icon "${iconName}" not found in iconMap`);
+    return null;
+  }
+  return <IconComponent className={className} />;
+}

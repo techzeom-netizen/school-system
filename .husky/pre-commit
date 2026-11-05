@@ -1,0 +1,7 @@
+# Run lint-staged for formatting and linting
+npx lint-staged
+
+# Run type check and build (cross-platform)
+npm run type-check
+
+npm run build

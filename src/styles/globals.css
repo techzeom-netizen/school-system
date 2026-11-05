@@ -1,0 +1,660 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+
+    /* Navbar specific colors */
+    --navbar-bg: 221.2 83.2% 53.3%; /* Blue background */
+    --navbar-bg-hover: 221.2 83.2% 48%; /* Darker blue on hover */
+    --navbar-text: 210 40% 98%; /* White text */
+    --navbar-text-hover: 210 40% 98%; /* White text on hover */
+
+    /* Navbar dimensions */
+    --navbar-height: 3.5rem; /* 56px - top section height */
+    --navbar-bottom-height: 3rem; /* 48px - bottom section height */
+    --navbar-total-height: 5.5rem; /* 88px - total navbar height (reduced from 104px) */
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 94.1%;
+
+    /* Navbar specific colors for dark mode */
+    --navbar-bg: 217.2 91.2% 59.8%; /* Lighter blue for dark mode */
+    --navbar-bg-hover: 217.2 91.2% 54%; /* Darker blue on hover */
+    --navbar-text: 222.2 84% 4.9%; /* Dark text for contrast */
+    --navbar-text-hover: 222.2 84% 4.9%; /* Dark text on hover */
+
+    /* Navbar dimensions (same for dark mode) */
+    --navbar-height: 3.5rem; /* 56px - top section height */
+    --navbar-bottom-height: 3rem; /* 48px - bottom section height */
+    --navbar-total-height: 5.5rem; /* 88px - total navbar height (reduced from 104px) */
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    @apply bg-background text-foreground;
+    overflow-x: clip; /* Prevent horizontal scroll without breaking sticky */
+  }
+
+  /* Use a better approach for fixed navbar without body padding */
+  body.dashboard-layout {
+    /* Remove body padding to prevent layout shifts */
+    padding-top: 0;
+  }
+
+  /* Add margin-top to main content instead of body padding */
+  body.dashboard-layout .main-content {
+    margin-top: var(--navbar-total-height);
+  }
+
+  /* Ensure navbar extends to full viewport width without horizontal scroll */
+  .navbar-full-width {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /* Full viewport width utilities - fixed to prevent horizontal scroll */
+  .w-screen-full {
+    width: 100%;
+    position: relative;
+    left: 0;
+    right: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /* Alternative approach using negative margins */
+  .w-full-negative {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+  }
+
+  /* Better approach using full width container */
+  .full-width-container {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+
+  /* Ensure no horizontal scroll on root elements */
+  html,
+  body {
+    overflow-x: clip;
+  }
+
+  /* Prevent navbar elements from causing horizontal overflow */
+  nav,
+  nav * {
+    box-sizing: border-box;
+  }
+
+  /* Utility class for content below fixed navbar */
+  .content-with-fixed-navbar {
+    margin-top: var(--navbar-total-height);
+  }
+
+  /* Ensure fixed navbar works properly on mobile */
+  @media (max-width: 768px) {
+    body.dashboard-layout .main-content {
+      margin-top: var(--navbar-total-height);
+    }
+  }
+
+  /* Responsive container utilities */
+  .container-responsive {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Full width below 1440px */
+  @media (max-width: 1439px) {
+    .container-responsive {
+      max-width: none;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+
+  /* Standard container above 1440px */
+  @media (min-width: 1440px) {
+    .container-responsive {
+      max-width: 1600px; /* Increased from 1280px to accommodate large menu */
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  /* Extra large container for very wide screens */
+  @media (min-width: 1920px) {
+    .container-responsive {
+      max-width: 1800px; /* Even larger for ultra-wide screens */
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  }
+
+  /* Additional responsive padding adjustments */
+  @media (min-width: 640px) and (max-width: 1439px) {
+    .container-responsive {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) and (max-width: 1439px) {
+    .container-responsive {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  /* Alternative utility classes for Tailwind usage */
+  .container-full-below-3xl {
+    width: 100%;
+    max-width: none;
+  }
+
+  /* Large container for menu-heavy layouts */
+  .container-large {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 1024px) {
+    .container-large {
+      max-width: 1400px;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .container-large {
+      max-width: 1700px;
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  }
+
+  @media (min-width: 1920px) {
+    .container-large {
+      max-width: 1900px;
+      padding-left: 4rem;
+      padding-right: 4rem;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .container-full-below-3xl {
+      max-width: 1280px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  /* Arrow animation utilities */
+  .arrow-rotate {
+    transform: rotate(180deg);
+  }
+
+  .arrow-rotate-90 {
+    transform: rotate(90deg);
+  }
+
+  .arrow-transition {
+    transition: transform 0.2s ease-in-out;
+  }
+
+  /* Dropdown animations */
+  .dropdown-enter {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  .dropdown-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+      opacity 0.2s ease-in-out,
+      transform 0.2s ease-in-out;
+  }
+
+  .dropdown-exit {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .dropdown-exit-active {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition:
+      opacity 0.2s ease-in-out,
+      transform 0.2s ease-in-out;
+  }
+}
+
+/* ========================================
+    CUSTOM SCROLLBAR STYLES
+   ======================================== */
+
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+  height: 0;
+  width: 0;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border-radius: 999px;
+  border: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(221.2 83.2% 48%);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: hsl(221.2 83.2% 42%);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: hsl(217.2 91.2% 55%);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: hsl(217.2 91.2% 50%);
+}
+
+.dark ::-webkit-scrollbar-thumb:active {
+  background: hsl(217.2 91.2% 45%);
+}
+
+/* Firefox scrollbar styling */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--primary)) transparent;
+}
+
+.dark * {
+  scrollbar-color: hsl(217.2 91.2% 55%) transparent;
+}
+
+/* Thin scrollbar variant */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  border: 1px solid transparent;
+}
+
+/* Navbar scrollbar - uses navbar colors */
+.scrollbar-navbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-navbar::-webkit-scrollbar-track {
+  background: hsl(var(--navbar-bg-hover));
+  border-radius: 10px;
+}
+
+.scrollbar-navbar::-webkit-scrollbar-thumb {
+  background: hsl(var(--navbar-text) / 0.4);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.scrollbar-navbar::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--navbar-text) / 0.6);
+}
+
+.scrollbar-navbar::-webkit-scrollbar-thumb:active {
+  background: hsl(var(--navbar-text) / 0.8);
+}
+
+/* Firefox navbar scrollbar */
+.scrollbar-navbar {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--navbar-text) / 0.4) hsl(var(--navbar-bg-hover));
+}
+
+/* Hidden scrollbar that still scrolls */
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+/* Scrollbar that only shows on hover */
+.scrollbar-hover::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+.scrollbar-hover:hover::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    hsl(var(--primary)) 0%,
+    hsl(221.2 83.2% 45%) 100%
+  );
+}
+
+/* Rounded scrollbar variant */
+.scrollbar-rounded::-webkit-scrollbar {
+  width: 12px;
+}
+
+.scrollbar-rounded::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 100px;
+  margin: 8px;
+}
+
+.scrollbar-rounded::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    hsl(var(--primary)) 0%,
+    hsl(221.2 83.2% 45%) 100%
+  );
+  border-radius: 100px;
+  border: 3px solid hsl(var(--muted));
+}
+
+/* Glow effect on hover */
+.scrollbar-glow::-webkit-scrollbar-thumb:hover {
+  box-shadow: 0 0 10px hsl(var(--primary) / 0.5);
+}
+
+/* Job seeker profile sidebar scrollbar */
+.profile-sidebar-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.profile-sidebar-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+
+  .scrollbar-thumb-gray-300 {
+    scrollbar-color: rgb(209 213 219) transparent;
+  }
+
+  .scrollbar-track-gray-100 {
+    scrollbar-color: transparent rgb(243 244 246);
+  }
+
+  .dark .scrollbar-thumb-gray-600 {
+    scrollbar-color: rgb(75 85 99) transparent;
+  }
+
+  .dark .scrollbar-track-gray-700 {
+    scrollbar-color: transparent rgb(55 65 81);
+  }
+}
+
+/* Animation utilities */
+@layer utilities {
+  .animate-in {
+    animation: animate-in 0.2s ease-out;
+  }
+
+  .animate-out {
+    animation: animate-out 0.2s ease-in;
+  }
+
+  .fade-in-0 {
+    animation: fade-in 0.2s ease-out;
+  }
+
+  .fade-out-0 {
+    animation: fade-out 0.2s ease-in;
+  }
+
+  .zoom-in-95 {
+    animation: zoom-in 0.2s ease-out;
+  }
+
+  .zoom-out-95 {
+    animation: zoom-out 0.2s ease-in;
+  }
+
+  .slide-in-from-top-2 {
+    animation: slide-in-from-top 0.2s ease-out;
+  }
+
+  .slide-in-from-right-2 {
+    animation: slide-in-from-right 0.2s ease-out;
+  }
+
+  .slide-in-from-bottom-2 {
+    animation: slide-in-from-bottom 0.2s ease-out;
+  }
+
+  .slide-in-from-left-2 {
+    animation: slide-in-from-left 0.2s ease-out;
+  }
+}
+
+@keyframes animate-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes animate-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes zoom-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+@keyframes slide-in-from-top {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-from-right {
+  from {
+    opacity: 0;
+    transform: translateX(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-from-bottom {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-from-left {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fix date input styling for better click area */
+input[type='date'] {
+  position: relative;
+  cursor: pointer;
+  padding-right: 2.5rem; /* Make room for the calendar icon */
+}
+
+input[type='date']::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  color: transparent;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Fix for Firefox */
+input[type='date']::-moz-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  color: transparent;
+  background: transparent;
+  cursor: pointer;
+}
