@@ -162,7 +162,7 @@ export const initialSections: Record<SectionKey, ResumeSectionItem[]> = {
     {
       id: 'employment-1',
       title: 'Frontend Engineer',
-      subtitle: 'Demo School',
+      subtitle: 'KD Public School',
       start: '2023-04',
       description:
         'Built reusable dashboards, filters, and candidate-facing job search experiences.',

@@ -92,7 +92,7 @@ export const INDIAN_STATES = [
 
 // Theme Options
 export const THEME_OPTIONS = [
-  { value: 'blue', label: 'Blue', color: '#3b82f6' },
+  { value: 'blue', label: 'Blue', color: '#aa394e' },
   { value: 'green', label: 'Green', color: '#10b981' },
   { value: 'purple', label: 'Purple', color: '#8b5cf6' },
   { value: 'red', label: 'Red', color: '#ef4444' },

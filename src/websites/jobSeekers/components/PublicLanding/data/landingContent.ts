@@ -37,7 +37,7 @@ export type LandingStat = {
 // TODO: replace with API data.
 // prettier-ignore
 export const stats: LandingStat[] = [
-  { value: '12,400+', label: 'Verified companies', delta: '340 added this week', growth: true, icon: Building2, accent: '#2563eb', tint: '#eff6ff' },
+  { value: '12,400+', label: 'Verified companies', delta: '340 added this week', growth: true, icon: Building2, accent: '#8f2438', tint: '#eff6ff' },
   { value: '86,000+', label: 'Open jobs today', delta: '2,100 new today', growth: true, icon: Briefcase, accent: '#059669', tint: '#ecfdf5' },
   { value: '1.2M', label: 'Job seekers', delta: '18K this month', growth: true, icon: Users, accent: '#7c3aed', tint: '#f5f3ff' },
   { value: '48 hrs', label: 'Typical employer reply', delta: 'Across all employers', growth: false, icon: Bell, accent: '#d97706', tint: '#fffbeb' },
@@ -63,7 +63,7 @@ export const popularSearches: { label: string; count: string; filter: LandingFil
   { label: 'Remote jobs', count: '1.2K', filter: { workMode: 'Remote' } },
 ];
 export const quickTileAccents = {
-  blue: '[--tile-accent:#2563eb] [--tile-border:#bfdbfe] [--tile-tint:#eff6ff]',
+  blue: '[--tile-accent:#8f2438] [--tile-border:#bfdbfe] [--tile-tint:#eff6ff]',
   violet:
     '[--tile-accent:#7c3aed] [--tile-border:#ddd6fe] [--tile-tint:#f5f3ff]',
   emerald:
@@ -135,7 +135,7 @@ export type FieldCategory = {
 // TODO: replace with API data.
 // prettier-ignore
 export const categories: FieldCategory[] = [
-  { name: 'Engineering', count: '24,800', icon: Code2, accent: '#2563eb', tint: '#eff6ff', roles: ['Frontend', 'Backend', 'DevOps'], pattern: /engineer|developer/i },
+  { name: 'Engineering', count: '24,800', icon: Code2, accent: '#8f2438', tint: '#eff6ff', roles: ['Frontend', 'Backend', 'DevOps'], pattern: /engineer|developer/i },
   { name: 'Design', count: '6,200', icon: Palette, accent: '#7c3aed', tint: '#f5f3ff', roles: ['Product', 'UI/UX', 'Graphic'], pattern: /design/i },
   { name: 'Data', count: '8,400', icon: Database, accent: '#0891b2', tint: '#ecfeff', roles: ['Analyst', 'Data science', 'BI'], pattern: /data|analyst|analytics/i },
   { name: 'Marketing', count: '7,100', icon: Megaphone, accent: '#db2777', tint: '#fdf2f8', roles: ['SEO', 'Content', 'Performance'], pattern: /marketing|growth|seo/i },
@@ -152,7 +152,7 @@ export type LandingCompany = {
 };
 export const companies: LandingCompany[] = [
   {
-    name: 'Demo School',
+    name: 'KD Public School',
     city: 'Bengaluru',
     jobs: 24,
     tone: 'blue',
@@ -246,7 +246,7 @@ export const steps = [
     icon: Send,
     accent: '#4f65df',
     tint: '#eff6ff',
-    from: '#60a5fa',
+    from: '#c96b7c',
     to: '#818cf8',
     headline: 'Make your next career move.',
     highlights: [
@@ -321,7 +321,7 @@ export const tools: CareerTool[] = [
     icon: Bell,
     href: '/jobseekers/notifications',
     action: 'View notifications',
-    accent: '#2563eb',
+    accent: '#8f2438',
     tint: '#eff6ff',
     highlights: [
       'Interview and employer updates',
@@ -357,7 +357,7 @@ export const footerLinks = [
     ],
   },
   {
-    title: 'Demo School',
+    title: 'KD Public School',
     links: [
       { label: 'About us', href: '/about' },
       { label: 'Contact us', href: '/contact' },

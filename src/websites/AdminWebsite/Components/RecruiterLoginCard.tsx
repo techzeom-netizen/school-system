@@ -147,7 +147,7 @@ const RecruiterLoginCard = ({ onRegister }: RecruiterLoginCardProps) => {
 
       <div className="mt-5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-4 text-center">
         <p className="text-sm font-medium text-slate-600 dark:text-slate-300">
-          New to Demo School?
+          New to KD Public School?
         </p>
         <button
           type="button"

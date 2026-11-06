@@ -50,7 +50,7 @@ const EmailOtpVerificationDialog = ({
           <span className="font-semibold text-slate-700 dark:text-slate-200">
             {email}
           </span>{' '}
-          to finish creating your Demo School account.
+          to finish creating your KD Public School account.
         </DialogDescription>
       </DialogHeader>
 

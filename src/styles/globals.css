@@ -5,31 +5,31 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 213 54% 14%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 213 54% 14%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222.2 84% 4.9%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 213 54% 14%;
+    --primary: 351 68% 28%;
+    --primary-foreground: 45 45% 96%;
+    --secondary: 43 65% 51%;
+    --secondary-foreground: 211 79% 13%;
+    --muted: 42 30% 94%;
+    --muted-foreground: 215 20% 40%;
+    --accent: 42 48% 91%;
+    --accent-foreground: 348 68% 28%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
+    --border: 214 23% 86%;
+    --input: 214 23% 82%;
+    --ring: 43 65% 51%;
     --radius: 0.5rem;
 
     /* Navbar specific colors */
-    --navbar-bg: 221.2 83.2% 53.3%; /* Blue background */
-    --navbar-bg-hover: 221.2 83.2% 48%; /* Darker blue on hover */
-    --navbar-text: 210 40% 98%; /* White text */
-    --navbar-text-hover: 210 40% 98%; /* White text on hover */
+    --navbar-bg: 211 79% 13%;
+    --navbar-bg-hover: 348 68% 28%;
+    --navbar-text: 45 45% 96%;
+    --navbar-text-hover: 43 70% 63%;
 
     /* Navbar dimensions */
     --navbar-height: 3.5rem; /* 56px - top section height */
@@ -38,31 +38,31 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 84% 4.9%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --background: 212 64% 7%;
+    --foreground: 45 45% 96%;
+    --card: 211 58% 10%;
+    --card-foreground: 45 45% 96%;
+    --popover: 211 58% 10%;
+    --popover-foreground: 45 45% 96%;
+    --primary: 351 59% 42%;
+    --primary-foreground: 45 45% 96%;
+    --secondary: 348 55% 24%;
+    --secondary-foreground: 45 45% 96%;
+    --muted: 211 36% 17%;
+    --muted-foreground: 214 20% 70%;
+    --accent: 348 55% 24%;
+    --accent-foreground: 45 45% 96%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 94.1%;
+    --border: 211 30% 23%;
+    --input: 211 30% 23%;
+    --ring: 43 65% 56%;
 
     /* Navbar specific colors for dark mode */
-    --navbar-bg: 217.2 91.2% 59.8%; /* Lighter blue for dark mode */
-    --navbar-bg-hover: 217.2 91.2% 54%; /* Darker blue on hover */
-    --navbar-text: 222.2 84% 4.9%; /* Dark text for contrast */
-    --navbar-text-hover: 222.2 84% 4.9%; /* Dark text on hover */
+    --navbar-bg: 211 79% 13%;
+    --navbar-bg-hover: 348 68% 28%;
+    --navbar-text: 45 45% 96%;
+    --navbar-text-hover: 43 70% 63%;
 
     /* Navbar dimensions (same for dark mode) */
     --navbar-height: 3.5rem; /* 56px - top section height */
@@ -315,7 +315,7 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(221.2 83.2% 48%);
+  background: hsl(348 68% 28%);
 }
 
 ::-webkit-scrollbar-thumb:active {

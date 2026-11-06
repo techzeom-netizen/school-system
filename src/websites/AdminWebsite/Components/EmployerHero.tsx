@@ -115,7 +115,7 @@ const EmployerHero = ({ onRegister }: EmployerHeroProps) => {
             <a
               href="#free-hrms"
               onClick={scrollToHrms}
-              className="group flex items-center gap-4 rounded-xl border-2 border-blue-800 bg-white dark:bg-slate-800/50 dark:border-white/60 p-4 shadow-[5px_5px_0_0_#1e40af] transition hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[7px_7px_0_0_#1e40af] focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300 dark:focus-visible:ring-blue-700 motion-reduce:transition-none motion-reduce:hover:translate-x-0 motion-reduce:hover:translate-y-0"
+              className="group flex items-center gap-4 rounded-xl border-2 border-blue-800 bg-white dark:bg-slate-800/50 dark:border-white/60 p-4 shadow-[5px_5px_0_0_#7a1724] transition hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[7px_7px_0_0_#7a1724] focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300 dark:focus-visible:ring-blue-700 motion-reduce:transition-none motion-reduce:hover:translate-x-0 motion-reduce:hover:translate-y-0"
             >
               <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-blue-800 text-white">
                 <Users className="h-6 w-6" />
@@ -155,7 +155,7 @@ const EmployerHero = ({ onRegister }: EmployerHeroProps) => {
 
           {/* Dark stats block */}
           <div
-            className="hx-rise mt-8 grid max-w-2xl grid-cols-3 divide-x divide-white/10 dark:divide-slate-700/10 rounded-xl border-2 border-white dark:border-slate-700  bg-blue-800 p-2 shadow-[5px_5px_0_0_#607cbd]"
+            className="hx-rise mt-8 grid max-w-2xl grid-cols-3 divide-x divide-white/10 dark:divide-slate-700/10 rounded-xl border-2 border-white dark:border-slate-700  bg-blue-800 p-2 shadow-[5px_5px_0_0_#c96b7c]"
             style={{ animationDelay: '520ms' }}
           >
             {heroStats.map(stat => (

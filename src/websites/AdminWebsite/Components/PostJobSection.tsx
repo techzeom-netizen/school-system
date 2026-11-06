@@ -43,14 +43,14 @@ const PostJobSection = ({ onRegister }: PostJobSectionProps) => (
         <Button
           type="button"
           onClick={onRegister}
-          className="group mt-7 inline-flex h-12 items-center gap-2  divide-x divide-white/10 dark:divide-slate-700/10 rounded-xl border-2 border-white dark:border-white/60 bg-blue-800 p-2 shadow-[5px_5px_0_0_#607cbd]  hover:bg-blue-800 hover:-translate-y-0.5 hover:shadow-[7px_7px_0_0_#1e40af] focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300 dark:focus-visible:ring-blue-700 active:translate-x-0.5 active:translate-y-0.5 active:shadow-none motion-reduce:transition-none lg:mt-[clamp(1rem,3.4vh,1.75rem)] dark:text-white"
+          className="group mt-7 inline-flex h-12 items-center gap-2  divide-x divide-white/10 dark:divide-slate-700/10 rounded-xl border-2 border-white dark:border-white/60 bg-blue-800 p-2 shadow-[5px_5px_0_0_#c96b7c]  hover:bg-blue-800 hover:-translate-y-0.5 hover:shadow-[7px_7px_0_0_#7a1724] focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300 dark:focus-visible:ring-blue-700 active:translate-x-0.5 active:translate-y-0.5 active:shadow-none motion-reduce:transition-none lg:mt-[clamp(1rem,3.4vh,1.75rem)] dark:text-white"
         >
           Register to post a job
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" />
         </Button>
       </div>
 
-      <div className="bg-white dark:bg-slate-900 rounded-xl border-2 border-blue-800  dark:border-white/60 p-2 shadow-[5px_5px_0_0_#1e40af]">
+      <div className="bg-white dark:bg-slate-900 rounded-xl border-2 border-blue-800  dark:border-white/60 p-2 shadow-[5px_5px_0_0_#7a1724]">
         <div className="flex items-center justify-between gap-4 border-b border-slate-100 dark:border-white/60 pb-4">
           <div className="flex items-center gap-3">
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-400">

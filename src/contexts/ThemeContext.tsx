@@ -10,24 +10,7 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const [theme, setTheme] = useState<Theme>(() => {
-    return window.matchMedia('(prefers-color-scheme: dark)').matches
-      ? 'dark'
-      : 'light';
-  });
-
-  useLayoutEffect(() => {
-    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
-    const handleSystemThemeChange = () => {
-      setTheme(systemTheme.matches ? 'dark' : 'light');
-    };
-
-    handleSystemThemeChange();
-    systemTheme.addEventListener('change', handleSystemThemeChange);
-    return () => {
-      systemTheme.removeEventListener('change', handleSystemThemeChange);
-    };
-  }, []);
+  const [theme, setTheme] = useState<Theme>('light');
 
   const applyTheme = (newTheme: Theme) => {
     setTheme(newTheme);

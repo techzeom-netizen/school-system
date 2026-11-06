@@ -1,4 +1,5 @@
 import { Button } from '@/components';
+import SchoolBrand from '@/components/common/SchoolBrand';
 import { Facebook, Linkedin, Twitter } from 'lucide-react';
 
 const linkColumns = [
@@ -11,14 +12,10 @@ const EmployerFooter = () => (
   <footer className="bg-blue-900 text-white slate-700">
     <div className="mx-auto grid w-full  gap-10 px-5 pt-8 pb-4 lg:grid-cols-[1.2fr_1fr_1fr] lg:px-8">
       <div>
-        <img
-          src="/frontendImages/LOGO.png"
-          alt="Demo School"
-          className="h-11 w-auto rounded bg-white  object-contain p-1"
-        />
+        <SchoolBrand inverse />
         <p className="mt-5 max-w-sm text-sm leading-7 text-white">
-          Demo School helps administrators, teachers, staff and parents manage
-          hiring pipelines with confidence.
+          KD Public School helps administrators, teachers, staff and parents
+          manage hiring pipelines with confidence.
         </p>
         <div className="mt-5 flex gap-3">
           {[Facebook, Twitter, Linkedin].map((Icon, index) => (
@@ -57,7 +54,7 @@ const EmployerFooter = () => (
 
       <div className="lg:col-span-3">
         <p className="-mt-3 text-center text-xs text-white/70">
-          &copy; 2026 Demo School. All rights reserved.
+          &copy; 2026 KD Public School. All rights reserved.
         </p>
       </div>
     </div>

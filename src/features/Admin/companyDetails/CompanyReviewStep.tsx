@@ -163,8 +163,8 @@ const CompanyReviewStep: React.FC<CompanyReviewStepProps> = ({
         <div>
           <h3 className="text-lg font-semibold">Review and submit</h3>
           <p className="mt-1 text-sm text-gray-600 dark:text-white/70">
-            Check everything once. After you submit, your request goes to the
-            Demo School administrator for approval.
+            Check everything once. After you submit, your request goes to the KD
+            Public School administrator for approval.
           </p>
         </div>
 
@@ -313,7 +313,7 @@ const CompanyReviewStep: React.FC<CompanyReviewStepProps> = ({
 
         <FormField
           type="checkbox"
-          label="I confirm the details and documents are correct and I am authorised to register this organisation on Demo School."
+          label="I confirm the details and documents are correct and I am authorised to register this organisation on KD Public School."
           name="company-registration-declaration"
           value={agreed}
           onCheckboxChange={checked => {

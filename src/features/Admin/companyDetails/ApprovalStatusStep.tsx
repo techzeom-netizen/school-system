@@ -43,7 +43,7 @@ const ApprovalStatusStep: React.FC<ApprovalStatusStepProps> = ({
 
   let title = 'Pending approval';
   let text =
-    'Your organisation details were sent to the Demo School team. Dashboard access stays locked until your organisation is approved.';
+    'Your organisation details were sent to the KD Public School team. Dashboard access stays locked until your organisation is approved.';
 
   let decisionLabel = 'Decision';
   let decisionSub = 'Approved or changes needed';
@@ -97,7 +97,7 @@ const ApprovalStatusStep: React.FC<ApprovalStatusStepProps> = ({
 
   const reviewLabel = isReviewed ? 'Reviewed' : 'Under review';
   const reviewSub = isReviewed
-    ? 'Verified by Demo School'
+    ? 'Verified by KD Public School'
     : 'Super admin is verifying';
   const reviewState = isReviewed ? 'done' : 'current';
 

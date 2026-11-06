@@ -5,10 +5,10 @@ const AboutPage = () => (
   <WebsiteShell>
     <section className="mx-auto w-full max-w-[1560px] px-5 py-12 lg:px-8">
       <h1 className="text-3xl font-bold text-gray-950 dark:text-slate-100">
-        About Demo School
+        About KD Public School
       </h1>
       <p className="mt-4 max-w-3xl text-gray-600 dark:text-slate-300">
-        Demo School brings administrators, teachers, staff, parents, and
+        KD Public School brings administrators, teachers, staff, parents, and
         students into one practical workspace. The portal keeps hiring workflows
         focused, fast, and easy to manage.
       </p>

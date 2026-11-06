@@ -374,9 +374,9 @@ const AdminDashboard: React.FC = () => {
   const transactionLines = [
     {
       dataKey: 'transactions',
-      stroke: '#3b82f6',
+      stroke: '#aa394e',
       strokeWidth: 3,
-      dot: { fill: '#3b82f6', strokeWidth: 2, r: 4 },
+      dot: { fill: '#aa394e', strokeWidth: 2, r: 4 },
       name: 'Transactions',
       yAxisId: 'left',
     },

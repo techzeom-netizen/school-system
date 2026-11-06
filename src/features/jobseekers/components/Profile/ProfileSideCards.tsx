@@ -21,7 +21,7 @@ const activityItems = [
 ];
 
 const viewedBy = [
-  ['Demo School', 'Teacher', '2h ago'],
+  ['KD Public School', 'Teacher', '2h ago'],
   ['PeopleWorks', 'React Developer', '1d ago'],
   ['TalentBridge', 'UI Engineer', '3d ago'],
 ];

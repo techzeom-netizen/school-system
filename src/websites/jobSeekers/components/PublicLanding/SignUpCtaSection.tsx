@@ -11,7 +11,7 @@ const SignUpCtaSection = ({ onSignIn }: { onSignIn?: () => void }) => (
       <SectionHeading
         id="signup-cta-heading"
         title="Your next role is one profile away."
-        subtitle="Join Demo School and stay connected to your school community."
+        subtitle="Join KD Public School and stay connected to your school community."
       />
       <div className="mt-7 flex flex-wrap items-center justify-center gap-5 lg:mt-[clamp(1rem,3.4vh,1.75rem)]">
         <Button

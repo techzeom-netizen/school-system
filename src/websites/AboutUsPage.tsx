@@ -3,7 +3,6 @@ import {
   ArrowRight,
   BookOpen,
   CalendarDays,
-  GraduationCap,
   HeartHandshake,
   Landmark,
   MapPin,
@@ -13,9 +12,10 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import SchoolBrand from '@/components/common/SchoolBrand';
 
 const schoolFacts = [
-  { label: 'Founded', value: '2005', icon: CalendarDays },
+  { label: 'Established', value: '2026', icon: CalendarDays },
   { label: 'Affiliation', value: 'CBSE, New Delhi', icon: Landmark },
   { label: 'Grades', value: 'Nursery to Class XII', icon: BookOpen },
   { label: 'School type', value: 'Co-educational day school', icon: Users },
@@ -26,7 +26,7 @@ const leadership = [
     role: 'Founder',
     name: 'Dr. Ananya Sharma',
     initials: 'AS',
-    text: 'An educator who founded Demo School with the belief that strong academics and personal attention should go together.',
+    text: 'An educator who founded KD Public School with the belief that strong academics and personal attention should go together.',
   },
   {
     role: 'Principal',
@@ -60,24 +60,14 @@ const AboutUsPage = () => (
         <Link
           to="/"
           className="flex items-center gap-3"
-          aria-label="Demo School home"
+          aria-label="KD Public School home"
         >
-          <span className="flex h-11 w-11 items-center justify-center bg-[#17352f] text-[#f4c65f]">
-            <GraduationCap className="h-6 w-6" aria-hidden="true" />
-          </span>
-          <span>
-            <strong className="block text-xl font-bold leading-none text-[#17352f]">
-              Demo School
-            </strong>
-            <small className="mt-1 block text-[10px] font-semibold uppercase tracking-[.18em] text-slate-500">
-              About our school
-            </small>
-          </span>
+          <SchoolBrand />
         </Link>
         <Button
           asChild
           variant="outline"
-          className="border-[#17352f] text-[#17352f]"
+          className="border-[#7a1724] text-[#7a1724]"
         >
           <Link to="/#about">
             <ArrowLeft aria-hidden="true" /> Back home
@@ -87,22 +77,22 @@ const AboutUsPage = () => (
     </header>
 
     <main>
-      <section className="bg-[#17352f] py-16 text-white sm:py-20">
+      <section className="bg-[#7a1724] py-16 text-white sm:py-20">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <p className="text-xs font-bold uppercase tracking-[.18em] text-[#f4c65f]">
+          <p className="text-xs font-bold uppercase tracking-[.18em] text-[#d4a62f]">
             Our school
           </p>
           <h1 className="mt-4 max-w-3xl text-4xl font-bold leading-tight sm:text-5xl">
-            Learning with purpose since 2005.
+            Knowledge, discipline and excellence since 2026.
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-7 text-white/75">
-            Demo School is a CBSE-affiliated community where children are known,
-            challenged and supported from Nursery through Class XII.
+            KD Public School is a CBSE-affiliated community where children are
+            known, challenged and supported from Nursery through Class XII.
           </p>
         </div>
       </section>
 
-      <section className="border-b border-slate-200 bg-[#f3f0e8]">
+      <section className="border-b border-slate-200 bg-[#f7f3e8]">
         <div className="mx-auto grid max-w-7xl sm:grid-cols-2 lg:grid-cols-4">
           {schoolFacts.map(({ label, value, icon: Icon }) => (
             <div
@@ -110,14 +100,14 @@ const AboutUsPage = () => (
               className="flex gap-4 border-b border-slate-200 p-6 sm:border-r lg:border-b-0 lg:last:border-r-0"
             >
               <Icon
-                className="h-6 w-6 shrink-0 text-[#b8751c]"
+                className="h-6 w-6 shrink-0 text-[#7a1724]"
                 aria-hidden="true"
               />
               <div>
                 <p className="text-xs font-bold uppercase tracking-[.12em] text-slate-500">
                   {label}
                 </p>
-                <p className="mt-1 font-semibold text-[#17352f]">{value}</p>
+                <p className="mt-1 font-semibold text-[#7a1724]">{value}</p>
               </div>
             </div>
           ))}
@@ -126,19 +116,18 @@ const AboutUsPage = () => (
 
       <section className="mx-auto grid max-w-7xl gap-10 px-5 py-16 lg:grid-cols-[.8fr_1.2fr] lg:px-8 lg:py-20">
         <div>
-          <p className="text-xs font-bold uppercase tracking-[.18em] text-[#b8751c]">
+          <p className="text-xs font-bold uppercase tracking-[.18em] text-[#7a1724]">
             Our story
           </p>
-          <h2 className="mt-3 text-3xl font-bold leading-tight text-[#17352f]">
+          <h2 className="mt-3 text-3xl font-bold leading-tight text-[#7a1724]">
             Built around children, families and good teaching.
           </h2>
         </div>
         <div className="space-y-5 text-base leading-7 text-slate-600">
           <p>
-            Demo School was founded in 2005 by Dr. Ananya Sharma under the Demo
-            Education Trust. It began with a small primary section and a clear
-            aim: to make high-quality education personal, practical and
-            accessible.
+            KD Public School was established in 2026 by Dr. Ananya Sharma under
+            the KD Education Trust. It began with a clear aim: to make
+            high-quality education personal, practical and accessible.
           </p>
           <p>
             Today the school serves learners from Nursery to Class XII. The
@@ -155,16 +144,16 @@ const AboutUsPage = () => (
       </section>
 
       <section
-        className="bg-[#f3f0e8] py-16 lg:py-20"
+        className="bg-[#f7f3e8] py-16 lg:py-20"
         aria-labelledby="leadership-title"
       >
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <p className="text-xs font-bold uppercase tracking-[.18em] text-[#b8751c]">
+          <p className="text-xs font-bold uppercase tracking-[.18em] text-[#7a1724]">
             People and governance
           </p>
           <h2
             id="leadership-title"
-            className="mt-3 text-3xl font-bold text-[#17352f]"
+            className="mt-3 text-3xl font-bold text-[#7a1724]"
           >
             School leadership
           </h2>
@@ -174,13 +163,13 @@ const AboutUsPage = () => (
                 key={person.role}
                 className="rounded-md border border-slate-200 bg-white p-6"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#17352f] font-bold text-[#f4c65f]">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#7a1724] font-bold text-[#d4a62f]">
                   {person.initials}
                 </div>
-                <p className="mt-5 text-xs font-bold uppercase tracking-[.14em] text-[#b8751c]">
+                <p className="mt-5 text-xs font-bold uppercase tracking-[.14em] text-[#7a1724]">
                   {person.role}
                 </p>
-                <h3 className="mt-1 text-xl font-bold text-[#17352f]">
+                <h3 className="mt-1 text-xl font-bold text-[#7a1724]">
                   {person.name}
                 </h3>
                 <p className="mt-3 text-sm leading-6 text-slate-600">
@@ -195,8 +184,8 @@ const AboutUsPage = () => (
       <section className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-20">
         <div className="grid gap-5 lg:grid-cols-3">
           <article className="rounded-md border border-slate-200 p-6">
-            <Target className="h-7 w-7 text-[#b8751c]" aria-hidden="true" />
-            <h2 className="mt-5 text-xl font-bold text-[#17352f]">
+            <Target className="h-7 w-7 text-[#7a1724]" aria-hidden="true" />
+            <h2 className="mt-5 text-xl font-bold text-[#7a1724]">
               Our mission
             </h2>
             <p className="mt-3 text-sm leading-6 text-slate-600">
@@ -206,10 +195,10 @@ const AboutUsPage = () => (
           </article>
           <article className="rounded-md border border-slate-200 p-6">
             <HeartHandshake
-              className="h-7 w-7 text-[#b8751c]"
+              className="h-7 w-7 text-[#7a1724]"
               aria-hidden="true"
             />
-            <h2 className="mt-5 text-xl font-bold text-[#17352f]">
+            <h2 className="mt-5 text-xl font-bold text-[#7a1724]">
               Our values
             </h2>
             <p className="mt-3 text-sm leading-6 text-slate-600">
@@ -219,25 +208,25 @@ const AboutUsPage = () => (
           </article>
           <article className="rounded-md border border-slate-200 p-6">
             <ShieldCheck
-              className="h-7 w-7 text-[#b8751c]"
+              className="h-7 w-7 text-[#7a1724]"
               aria-hidden="true"
             />
-            <h2 className="mt-5 text-xl font-bold text-[#17352f]">
+            <h2 className="mt-5 text-xl font-bold text-[#7a1724]">
               The school trust
             </h2>
             <p className="mt-3 text-sm leading-6 text-slate-600">
-              Demo Education Trust provides governance, financial oversight and
+              KD Education Trust provides governance, financial oversight and
               long-term stewardship of the school.
             </p>
           </article>
         </div>
       </section>
 
-      <section className="bg-[#17352f] py-14 text-white">
+      <section className="bg-[#7a1724] py-14 text-white">
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-7 px-5 sm:flex-row sm:items-center lg:px-8">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[.16em] text-[#f4c65f]">
-              Visit Demo School
+            <p className="text-xs font-bold uppercase tracking-[.16em] text-[#d4a62f]">
+              Visit KD Public School
             </p>
             <h2 className="mt-2 text-2xl font-bold">
               See the school and meet our team.
@@ -250,7 +239,7 @@ const AboutUsPage = () => (
           <Button
             asChild
             size="lg"
-            className="bg-[#f4c65f] font-bold text-[#17352f] hover:bg-[#ffd979]"
+            className="bg-[#d4a62f] font-bold text-[#7a1724] hover:bg-[#f0d47a]"
           >
             <Link to="/enquiry">
               Send an enquiry <ArrowRight aria-hidden="true" />

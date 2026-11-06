@@ -22,7 +22,7 @@ const ComparisonSection = () => (
                 Feature
               </th>
               <th className="bg-blue-200 dark:bg-blue-950/50  px-5 py-4 font-bold text-blue-800 dark:text-blue-300">
-                Demo School
+                KD Public School
               </th>
               <th className="px-5 py-4 font-bold text-slate-700 dark:text-slate-200">
                 Traditional hiring

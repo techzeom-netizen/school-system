@@ -23,7 +23,7 @@ const JobSeekerForgotPasswordForm = ({
       type="email"
       value={email}
       onChange={onEmailChange}
-      placeholder="parent@demo-school.edu"
+      placeholder="parent@kdpublicschool.edu"
       required
       className="[&_input]:h-11 [&_input]:rounded-md [&_input]:px-4 [&_input]:text-base [&_label]:text-sm [&_label]:font-bold"
     />

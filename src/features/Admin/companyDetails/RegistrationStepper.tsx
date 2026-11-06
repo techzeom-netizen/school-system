@@ -11,7 +11,7 @@ const steps = [
   { title: 'Company details', text: 'Business and contact info' },
   { title: 'Documents', text: 'GST, PAN, certificate' },
   { title: 'Review & submit', text: 'Confirm your request' },
-  { title: 'Approval Status', text: 'Verification by Demo School' },
+  { title: 'Approval Status', text: 'Verification by KD Public School' },
 ];
 
 const RegistrationStepper: React.FC<RegistrationStepperProps> = ({

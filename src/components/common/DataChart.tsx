@@ -67,7 +67,7 @@ const DataChart: React.FC<DataChartProps> = ({
 
   const maxValue = Math.max(...data.map(d => d.value));
   const colors = [
-    '#3B82F6',
+    '#aa394e',
     '#EF4444',
     '#10B981',
     '#F59E0B',

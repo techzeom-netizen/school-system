@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import SchoolBrand from '@/components/common/SchoolBrand';
 import { footerLinks } from './data/landingContent';
 
 const PublicFooter = () => (
@@ -9,14 +10,10 @@ const PublicFooter = () => (
         <div>
           <Link
             to="/"
-            aria-label="Demo School home"
+            aria-label="KD Public School home"
             className="inline-block rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-200"
           >
-            <img
-              src="/frontendImages/LOGO.png"
-              alt="Demo School"
-              className="h-11 w-auto rounded bg-white object-contain p-1"
-            />
+            <SchoolBrand inverse />
           </Link>
           <p className="mt-5 text-sm font-semibold text-white">
             Verified Careers. Trusted Hiring.
@@ -49,7 +46,8 @@ const PublicFooter = () => (
       </div>
       <div className="mt-8 border-t border-white/15 dark:border-slate-700/15 pt-5">
         <p className="text-center text-xs text-white/70">
-          &copy; {new Date().getFullYear()} Demo School. All rights reserved.
+          &copy; {new Date().getFullYear()} KD Public School. All rights
+          reserved.
         </p>
       </div>
     </div>

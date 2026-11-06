@@ -94,7 +94,7 @@ export const mockProfile: CandidateProfile = {
   id: 'aarav-candidate',
   fullName: 'Aarav Candidate',
   headline: 'Frontend Developer | React, TypeScript, Tailwind',
-  currentPosition: 'Teacher at Demo School',
+  currentPosition: 'Teacher at KD Public School',
   location: 'Bengaluru, Karnataka',
   photoUrl:
     'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=220&q=80',
@@ -116,7 +116,7 @@ export const mockProfile: CandidateProfile = {
     {
       id: 'mock-exp-1',
       title: 'Frontend Engineer',
-      subtitle: 'Demo School',
+      subtitle: 'KD Public School',
       period: 'Apr 2023 - Apr 2025',
       duration: '3y 6m',
       location: 'Bengaluru',
@@ -131,8 +131,8 @@ export const mockProfile: CandidateProfile = {
     },
     {
       id: 'mock-exp-2',
-      title: 'Teacher at Demo School',
-      subtitle: 'Demo School',
+      title: 'Teacher at KD Public School',
+      subtitle: 'KD Public School',
       period: 'Apr 2025 - Present',
       duration: '1y 6m',
       location: 'Bengaluru',
@@ -166,7 +166,7 @@ export const mockProfile: CandidateProfile = {
         'Candidate resume workspace with upload, default resume selection, and preview support.',
       bullets: [],
       tags: ['Resume', 'PDF', 'Profile'],
-      link: 'https://demo-school.edu',
+      link: 'https://kdpublicschool.edu',
     },
   ],
   accomplishments: [

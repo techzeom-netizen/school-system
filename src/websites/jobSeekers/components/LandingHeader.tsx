@@ -4,9 +4,8 @@ import { ArrowRightIcon, UserIcon, MenuIcon, XIcon } from 'lucide-react';
 import JobSeekerLoginDialog from '@/features/jobseekers/components/JobSeekerLoginDialog';
 import { cn } from '@/lib/utils';
 import ThemeToggle from '@/components/common/ThemeToggle';
+import SchoolBrand from '@/components/common/SchoolBrand';
 import { Button } from '@/components/ui/button';
-
-const logoSrc = '/frontendImages/LOGO.png';
 
 const navItems = [
   { to: '/jobs', label: 'Find Jobs' },
@@ -87,11 +86,7 @@ const LandingHeader = ({ hideForSectionId }: { hideForSectionId?: string }) => {
           className="flex shrink-0 items-center"
           onClick={() => setMenuOpen(false)}
         >
-          <img
-            src={logoSrc}
-            alt="Demo School"
-            className="h-10 w-auto bg-white rounded-md"
-          />
+          <SchoolBrand compact />
         </Link>
 
         {/* Desktop navigation */}

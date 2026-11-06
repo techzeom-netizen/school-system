@@ -12,7 +12,7 @@ const FaqSection = () => (
         id="faq-title"
         eyebrow="FAQ"
         title="Frequently asked questions"
-        subtitle="Answers for school teams evaluating Demo School for campus operations."
+        subtitle="Answers for school teams evaluating KD Public School for campus operations."
       />
       <div className="mx-auto mt-10 max-w-4xl space-y-3">
         {faqs.map((faq, index) => (

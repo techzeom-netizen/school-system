@@ -70,7 +70,7 @@ const JobSeekerLoginForm = ({
         type="email"
         value={email}
         onChange={onEmailChange}
-        placeholder="parent@demo-school.edu"
+        placeholder="parent@kdpublicschool.edu"
         required
         className="[&_input]:h-11 [&_input]:rounded-sm [&_input]:px-4 [&_input]:text-base [&_label]:text-sm [&_label]:font-bold"
       />
@@ -112,7 +112,7 @@ const JobSeekerLoginForm = ({
 
     <div className="mt-6 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-4 text-center">
       <p className="text-sm font-medium text-slate-600 dark:text-slate-300">
-        New to Demo School?
+        New to KD Public School?
       </p>
       <Button
         type="button"

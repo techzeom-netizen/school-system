@@ -22,16 +22,16 @@ export interface NavbarColorScheme {
 
 export const defaultNavbarColors: NavbarColorScheme = {
   light: {
-    bg: '221.2 83.2% 53.3%', // Blue
-    bgHover: '221.2 83.2% 48%', // Darker blue
-    text: '210 40% 98%', // White
-    textHover: '210 40% 98%', // White
+    bg: '211 79% 13%',
+    bgHover: '348 68% 28%',
+    text: '45 45% 96%',
+    textHover: '43 70% 63%',
   },
   dark: {
-    bg: '217.2 91.2% 59.8%', // Lighter blue
-    bgHover: '217.2 91.2% 54%', // Darker blue
-    text: '222.2 84% 4.9%', // Dark
-    textHover: '222.2 84% 4.9%', // Dark
+    bg: '211 79% 13%',
+    bgHover: '348 68% 28%',
+    text: '45 45% 96%',
+    textHover: '43 70% 63%',
   },
 };
 
@@ -187,6 +187,11 @@ export function loadNavbarColorPreference(): string | null {
  */
 export function initializeNavbarColors(): void {
   const savedPreset = loadNavbarColorPreference();
+  if (savedPreset === 'green') {
+    localStorage.removeItem('navbar-color-preset');
+    applyNavbarColors(defaultNavbarColors);
+    return;
+  }
   if (savedPreset && presetColorSchemes[savedPreset]) {
     applyPresetNavbarColors(savedPreset);
   } else {

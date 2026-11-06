@@ -1048,7 +1048,7 @@ const AttendanceSettingPage = () => {
                       </span>
                       <div>
                         <p className="text-sm font-semibold text-foreground">
-                          Demo School
+                          KD Public School
                         </p>
                         <p className="text-sm text-muted-foreground">
                           Good morning! Do not forget to check in. It is{' '}

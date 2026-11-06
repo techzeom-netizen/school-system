@@ -13,8 +13,7 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip';
 import { LogOut, Layout } from 'lucide-react';
-
-const logoSrc = '/frontendImages/LOGO.png';
+import SchoolBrand from '@/components/common/SchoolBrand';
 
 interface TopNavbarProps {
   onLogout: () => void;
@@ -34,7 +33,7 @@ const TopNavbar: React.FC<TopNavbarProps> = ({ onLogout }) => {
               to={getRoleDashboardPath(user?.role || UserRole.JOB_SEEKER)}
               className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
             >
-              <img src={logoSrc} alt="Demo School" className="h-8 w-auto" />
+              <SchoolBrand compact />
             </Link>
 
             {/* Right side actions */}

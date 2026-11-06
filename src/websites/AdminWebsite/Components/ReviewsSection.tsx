@@ -12,7 +12,7 @@ const ReviewsSection = () => (
         id="reviews-title"
         eyebrow="Reviews"
         title="Loved by hiring teams"
-        subtitle="School teams use Demo School to bring clarity and speed to everyday operations."
+        subtitle="School teams use KD Public School to bring clarity and speed to everyday operations."
       />
       <div className="mt-10 grid gap-5 lg:grid-cols-3">
         {reviews.map(review => (

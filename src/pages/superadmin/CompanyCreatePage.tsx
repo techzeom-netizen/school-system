@@ -78,7 +78,7 @@ const CompanyCreatePage: React.FC = () => {
     state: '',
     country: 'IN',
     pincode: '',
-    primaryColor: '#3b82f6',
+    primaryColor: '#aa394e',
     secondaryColor: '#64748b',
     fontFamily: 'Inter',
     logo: '',
@@ -327,7 +327,7 @@ const CompanyCreatePage: React.FC = () => {
             onChange={(value: string) =>
               handleInputChange('primaryColor', value)
             }
-            placeholder="#3b82f6"
+            placeholder="#aa394e"
             required
           />
 

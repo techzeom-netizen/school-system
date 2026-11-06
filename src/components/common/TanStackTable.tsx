@@ -164,7 +164,7 @@ export function TanStackTable<TData>({
   const { error, handleError, clearError } = useErrorHandler();
   const { user } = useAuth();
   // Hard-coded primary color
-  const primaryColor = '#2563EB';
+  const primaryColor = '#8f2438';
   const [serverSideData, setServerSideData] = useState<TData[]>([]);
   // const [serverSideLoading, setServerSideLoading] = useState(false);
   const [serverTotalCount, setServerTotalCount] = useState(0);

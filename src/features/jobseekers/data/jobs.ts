@@ -37,7 +37,7 @@ export const jobs: Job[] = [
   {
     id: 'J-1024',
     title: 'Frontend Engineer',
-    company: 'Demo School',
+    company: 'KD Public School',
     companyInitial: 'H',
     companyLogoClassName:
       'bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-400',

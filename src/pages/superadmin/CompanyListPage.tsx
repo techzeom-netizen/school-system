@@ -57,7 +57,7 @@ const initialCompanies: Company[] = [
     status: 'active',
     incorporationDate: '2024-01-15',
     domain: 'sangamam.bank',
-    primaryColor: '#3b82f6',
+    primaryColor: '#aa394e',
     createdAt: '2024-01-15T10:00:00Z',
     updatedAt: '2024-12-20T15:30:00Z',
   },

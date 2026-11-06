@@ -194,7 +194,7 @@ const RecruiterRegisterView = ({ onLogin }: RecruiterRegisterViewProps) => {
               </div>
             </div>
             <h1 className="mt-6 max-w-lg text-4xl font-extrabold leading-tight tracking-tight text-slate-950 dark:text-slate-100">
-              Build your school community with Demo School.
+              Build your school community with KD Public School.
             </h1>
             <p className="mt-4 max-w-md text-base leading-7 text-slate-600 dark:text-slate-300">
               Create your recruiter account, publish your first role and start
@@ -236,7 +236,7 @@ const RecruiterRegisterView = ({ onLogin }: RecruiterRegisterViewProps) => {
         <section className="px-0 py-8 sm:py-10 lg:flex lg:h-full lg:overflow-y-auto lg:px-12 lg:py-6">
           <div className="mx-auto flex w-full max-w-2xl flex-col justify-center lg:min-h-full">
             <p className="text-xs font-bold uppercase tracking-[0.24em] text-slate-400">
-              Join Demo School
+              Join KD Public School
             </p>
             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-950 dark:text-slate-100 lg:text-4xl">
               Create recruiter account
@@ -327,7 +327,7 @@ const RecruiterRegisterView = ({ onLogin }: RecruiterRegisterViewProps) => {
                 onClick={onLogin}
                 className="mt-2 h-auto gap-2 p-0 text-sm font-bold text-blue-700 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300"
               >
-                Sign in to Demo School
+                Sign in to KD Public School
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </div>

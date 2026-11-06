@@ -17,8 +17,8 @@ import {
   getJobSeekerLogoPath,
 } from '../config/jobSeekerNavigation';
 import JobSeekerNotifications from './JobSeekerNotifications';
+import SchoolBrand from '@/components/common/SchoolBrand';
 
-const logoSrc = '/frontendImages/LOGO.png';
 const profileImage =
   'https://images.squarespace-cdn.com/content/v1/5e2e7ccf474b6e545efeee8e/5aeb35cd-717b-4c8f-b5d6-7c4ef64c0cd7/Josh+Clapper+%282%29.jpg';
 
@@ -45,11 +45,7 @@ const JobSeekerHeader = () => {
     <header className="bg-slate-50/90 dark:bg-slate-800/50 px-3 py-2 backdrop-blur">
       <div className="mx-auto flex w-full max-w-[1560px] items-center justify-between rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-5 py-3 shadow-sm lg:px-7">
         <Link to={logoPath} className="flex items-center">
-          <img
-            src={logoSrc}
-            alt="Demo School"
-            className="h-10 w-auto bg-white rounded-md"
-          />
+          <SchoolBrand compact />
         </Link>
         <nav className="hidden items-center gap-8 text-sm font-semibold text-slate-600 dark:text-slate-300 md:flex">
           {navItems.map(item => (

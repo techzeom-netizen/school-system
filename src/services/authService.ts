@@ -52,7 +52,7 @@ class AuthService extends BaseService {
 
     // TODO: Remove this temporary local login when the Employee API is enabled.
     if (
-      normalizedEmail === 'staff@demo-school.edu' &&
+      normalizedEmail === 'staff@kdpublicschool.edu' &&
       credentials.password === 'password123' &&
       credentials.type === 'Employee'
     ) {
@@ -77,7 +77,7 @@ class AuthService extends BaseService {
 
     // TODO: Remove this temporary local login when the Super Admin API is enabled.
     if (
-      normalizedEmail === 'superadmin@demo-school.edu' &&
+      normalizedEmail === 'superadmin@kdpublicschool.edu' &&
       credentials.password === 'SchoolSystem@12345' &&
       credentials.type === 'Super Admin'
     ) {

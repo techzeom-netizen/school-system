@@ -24,8 +24,7 @@ import { getJobSeekerProfilePath } from '../config/jobSeekerNavigation';
 import JobSeekerForgotPasswordForm from './JobSeekerForgotPasswordForm';
 import JobSeekerLoginForm from './JobSeekerLoginForm';
 import JobSeekerResetPasswordForm from './JobSeekerResetPasswordForm';
-
-const logoSrc = '/frontendImages/LOGO.png';
+import SchoolBrand from '@/components/common/SchoolBrand';
 
 type AuthMode = 'login' | 'forgot' | 'reset';
 
@@ -55,7 +54,7 @@ const sideContent: Record<
       </>
     ),
     description: 'Sign in to manage saved jobs and applications.',
-    headerTitle: 'Sign in to Demo School',
+    headerTitle: 'Sign in to KD Public School',
     headerDescription: 'Use your email, Google, or LinkedIn to continue.',
     points: [
       {
@@ -224,7 +223,10 @@ const JobSeekerLoginDialog = ({
   };
 
   const handleProviderLogin = () => {
-    void signIn({ email: 'parent@demo-school.edu', password: 'password123' });
+    void signIn({
+      email: 'parent@kdpublicschool.edu',
+      password: 'password123',
+    });
   };
 
   const handleRegisterClick = () => {
@@ -326,11 +328,7 @@ const JobSeekerLoginDialog = ({
             <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-blue-200/40 dark:bg-blue-900/40" />
 
             <div className="relative">
-              <img
-                src={logoSrc}
-                alt="Demo School"
-                className="h-10 w-auto bg-white rounded-md"
-              />
+              <SchoolBrand compact />
 
               <h2 className="mt-10 text-[30px] font-black leading-tight text-slate-700 dark:text-slate-200">
                 {content.title}

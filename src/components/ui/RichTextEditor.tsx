@@ -111,19 +111,19 @@ export function RichTextEditor({
           color: #ffffff;
         }
         .dark .rich-text-editor-wrapper .ql-toolbar .ql-picker-item:hover {
-          color: #60a5fa;
+          color: #c96b7c;
         }
         .dark .rich-text-editor-wrapper .ql-toolbar button:hover .ql-stroke {
-          stroke: #60a5fa;
+          stroke: #c96b7c;
         }
         .dark .rich-text-editor-wrapper .ql-toolbar button:hover .ql-fill {
-          fill: #60a5fa;
+          fill: #c96b7c;
         }
         .dark .rich-text-editor-wrapper .ql-toolbar button.ql-active .ql-stroke {
-          stroke: #60a5fa;
+          stroke: #c96b7c;
         }
         .dark .rich-text-editor-wrapper .ql-toolbar button.ql-active .ql-fill {
-          fill: #60a5fa;
+          fill: #c96b7c;
         }
         .dark .rich-text-editor-wrapper .ql-editor.ql-blank::before {
           color: #9ca3af;

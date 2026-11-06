@@ -85,7 +85,7 @@ const LoaderPage: React.FC<LoaderPageProps> = ({
                 gradientUnits="userSpaceOnUse"
               >
                 <stop stopColor="#0755F5" />
-                <stop offset="1" stopColor="#1119D8" />
+                <stop offset="1" stopColor="#8f2438" />
               </linearGradient>
               <linearGradient
                 id="loader-ribbon"
@@ -172,7 +172,7 @@ const loaderAnimationStyles = `
       from 0deg,
       transparent 0deg,
       transparent 200deg,
-      #1119d8 245deg,
+      #8f2438 245deg,
       #00bfe0 305deg,
       #00d45d 354deg,
       transparent 360deg
@@ -218,7 +218,7 @@ const loaderAnimationStyles = `
   }
 
   /* The logo starts drawing immediately, while the box is still opening. */
-  .logo-loader__path--one   { color: #1119d8; animation-delay: 0s; }
+  .logo-loader__path--one   { color: #8f2438; animation-delay: 0s; }
   .logo-loader__path--two   { color: #00bfe0; animation-delay: 0.1s; }
   .logo-loader__path--three { color: #00d45d; animation-delay: 0.2s; }
 

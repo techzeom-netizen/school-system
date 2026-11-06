@@ -13,7 +13,7 @@ interface HrmsSectionProps {
 }
 
 const ModuleTile = ({ label, icon: Icon }: (typeof hrmsModules)[number]) => (
-  <div className="flex items-center gap-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 p-2.5 transition hover:-translate-x-0.5 hover:-translate-y-0.5 hover:border-blue-800 hover:shadow-[4px_4px_0_0_#1e40af] motion-reduce:transition-none motion-reduce:hover:translate-x-0 motion-reduce:hover:translate-y-0 sm:flex-col sm:items-start sm:gap-2 sm:p-3 lg:p-[clamp(0.5rem,1.5vh,0.75rem)]">
+  <div className="flex items-center gap-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 p-2.5 transition hover:-translate-x-0.5 hover:-translate-y-0.5 hover:border-blue-800 hover:shadow-[4px_4px_0_0_#7a1724] motion-reduce:transition-none motion-reduce:hover:translate-x-0 motion-reduce:hover:translate-y-0 sm:flex-col sm:items-start sm:gap-2 sm:p-3 lg:p-[clamp(0.5rem,1.5vh,0.75rem)]">
     <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-blue-800 text-white">
       <Icon className="h-4 w-4" aria-hidden="true" />
     </span>
@@ -107,11 +107,11 @@ const HrmsSection = ({ onRegister }: HrmsSectionProps) => (
           id="free-hrms-title"
           className="mt-4 max-w-2xl text-3xl font-extrabold leading-[1.08] tracking-tight text-slate-800 dark:text-slate-100 sm:text-4xl lg:mt-[clamp(0.75rem,2.4vh,1.25rem)] lg:text-[clamp(1.75rem,5.4vh,3rem)]"
         >
-          Manage your school with Demo School. Keep your community{' '}
+          Manage your school with KD Public School. Keep your community{' '}
           <span className="text-blue-800 dark:text-blue-300">free.</span>
         </h2>
         <p className="mt-4 max-w-xl text-sm leading-5 text-slate-600 dark:text-slate-300 lg:mt-[clamp(0.625rem,2vh,1.25rem)] lg:text-[clamp(0.875rem,2.3vh,1.125rem)] lg:leading-[1.65]">
-          Every school on Demo School gets the tools to look after its
+          Every school on KD Public School gets the tools to look after its
           community, from records and attendance to leave and payslips, all in
           the same place you hire.
         </p>
@@ -125,7 +125,7 @@ const HrmsSection = ({ onRegister }: HrmsSectionProps) => (
         <Button
           type="button"
           onClick={onRegister}
-          className="group mt-7 inline-flex h-12 items-center gap-2 rounded-xl border-2 border-white dark:border-white/60 bg-blue-800 px-5 font-bold text-white shadow-[5px_5px_0_0_#607cbd] hover:-translate-y-0.5 hover:bg-blue-800 hover:shadow-[7px_7px_0_0_#1e40af] focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300 dark:focus-visible:ring-blue-700 active:translate-x-0.5 active:translate-y-0.5 active:shadow-none motion-reduce:transition-none lg:mt-[clamp(1rem,3.4vh,1.75rem)]"
+          className="group mt-7 inline-flex h-12 items-center gap-2 rounded-xl border-2 border-white dark:border-white/60 bg-blue-800 px-5 font-bold text-white shadow-[5px_5px_0_0_#c96b7c] hover:-translate-y-0.5 hover:bg-blue-800 hover:shadow-[7px_7px_0_0_#7a1724] focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300 dark:focus-visible:ring-blue-700 active:translate-x-0.5 active:translate-y-0.5 active:shadow-none motion-reduce:transition-none lg:mt-[clamp(1rem,3.4vh,1.75rem)]"
         >
           Register and get free HRMS
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" />
@@ -137,14 +137,14 @@ const HrmsSection = ({ onRegister }: HrmsSectionProps) => (
         aria-hidden="true"
         className="relative hidden w-full max-w-xl pr-1.5 lg:ml-auto lg:block"
       >
-        <div className="overflow-hidden rounded-xl border-2 border-blue-800 dark:border-white/60 bg-blue-800 shadow-[5px_5px_0_0_#1e40af] ">
+        <div className="overflow-hidden rounded-xl border-2 border-blue-800 dark:border-white/60 bg-blue-800 shadow-[5px_5px_0_0_#7a1724] ">
           <div className="flex items-center justify-between bg-blue-900  border border-b-none rounded-t-xl px-4 py-3">
             <div className="flex items-center gap-2">
               <span className="h-2.5 w-2.5 rounded-full bg-white/30 dark:bg-white/60" />
               <span className="h-2.5 w-2.5 rounded-full bg-white/30 dark:bg-white/60" />
               <span className="h-2.5 w-2.5 rounded-full bg-white/30 dark:bg-white/60" />
               <span className="ml-3 text-sm font-extrabold text-white">
-                Demo School ERP
+                KD Public School ERP
               </span>
             </div>
             <span className="rounded-md bg-emerald-500 px-2.5 py-1 text-[11px] font-bold tracking-wider text-white">
@@ -179,7 +179,7 @@ const HrmsSection = ({ onRegister }: HrmsSectionProps) => (
         </div>
 
         {/* Only on tall screens: on short ones it would not fit inside the section */}
-        <div className="absolute -bottom-9 -left-6 hidden items-center gap-3 rounded-xl border border-blue-800 dark:border-white/60 bg-white dark:bg-slate-800 px-3.5 py-2.5 shadow-[5px_5px_0_0_#1e40af] [@media(min-height:700px)]:flex">
+        <div className="absolute -bottom-9 -left-6 hidden items-center gap-3 rounded-xl border border-blue-800 dark:border-white/60 bg-white dark:bg-slate-800 px-3.5 py-2.5 shadow-[5px_5px_0_0_#7a1724] [@media(min-height:700px)]:flex">
           <CheckCircle2 className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
           <div>
             <p className="text-sm font-bold leading-tight text-slate-900 dark:text-slate-100">

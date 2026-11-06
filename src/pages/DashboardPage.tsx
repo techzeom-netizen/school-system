@@ -14,7 +14,8 @@ import { getRoleDisplayName } from '@/utils/roleUtils';
 const roleContent = {
   [UserRole.SUPER_ADMIN]: {
     title: 'Platform Command Center',
-    subtitle: 'Monitor Demo School users, staff, parents, and school activity.',
+    subtitle:
+      'Monitor KD Public School users, staff, parents, and school activity.',
     stats: [
       ['Active jobs', '1,248', Briefcase],
       ['Companies', '312', Building2],

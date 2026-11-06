@@ -287,13 +287,13 @@ const CompanyRegistrationPage: React.FC = () => {
     stepFourCopy = {
       title: <>Your company is verified.</>,
       subtitle:
-        'Welcome to Demo School. Your full dashboard menu is now unlocked.',
+        'Welcome to KD Public School. Your full dashboard menu is now unlocked.',
     };
   } else {
     stepFourCopy = {
       title: <>Your request is with our team.</>,
       subtitle:
-        'Your organisation details were sent to the Demo School team for verification.',
+        'Your organisation details were sent to the KD Public School team for verification.',
     };
   }
 

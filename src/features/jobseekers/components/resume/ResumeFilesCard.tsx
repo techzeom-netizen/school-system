@@ -493,7 +493,7 @@ const ResumeFilesCard = ({
                             </h4>
                             <div className="mt-2">
                               <p className="font-semibold text-slate-950 dark:text-slate-100">
-                                Teacher, Demo School
+                                Teacher, KD Public School
                               </p>
                               <p className="text-xs text-slate-500 dark:text-slate-400">
                                 Apr 2023 - Present

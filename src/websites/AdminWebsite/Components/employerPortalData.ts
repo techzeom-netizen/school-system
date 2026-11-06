@@ -257,7 +257,7 @@ export const pricingPlans: PlanItem[] = [
   {
     name: 'Starter',
     price: 'Rs 0/month',
-    description: 'For school teams trying Demo School workflows.',
+    description: 'For school teams trying KD Public School workflows.',
     features: [
       'Post your first job',
       'Basic candidate responses',
@@ -290,7 +290,7 @@ export const reviews: ReviewItem[] = [
     name: 'Anika Verma',
     role: 'HR Lead, Northwind',
     quote:
-      'Demo School helped our team move from scattered updates to a clear pipeline.',
+      'KD Public School helped our team move from scattered updates to a clear pipeline.',
   },
   {
     initials: 'RK',

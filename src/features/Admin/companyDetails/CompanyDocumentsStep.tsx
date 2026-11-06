@@ -149,7 +149,7 @@ const CompanyDocumentsStep: React.FC<CompanyDocumentsStepProps> = ({
         <div>
           <h3 className="text-lg font-semibold ">Verification documents</h3>
           <p className="mt-1 text-sm text-gray-600 dark:text-white/70">
-            These help the Demo School team verify your organisation.
+            These help the KD Public School team verify your organisation.
           </p>
         </div>
 

@@ -47,14 +47,14 @@ const CandidateSearchShowcase = ({
         <Button
           type="button"
           onClick={onRegister}
-          className="group mt-7 inline-flex h-12 items-center gap-2   divide-x divide-white/10 dark:divide-slate-700/10 rounded-xl border-2 border-white dark:border-white/60 bg-blue-800 p-2 shadow-[5px_5px_0_0_#607cbd]  hover:bg-blue-800 hover:-translate-y-0.5 hover:shadow-[7px_7px_0_0_#1e40af] focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300 dark:focus-visible:ring-blue-700 active:translate-x-0.5 active:translate-y-0.5 active:shadow-none motion-reduce:transition-none lg:mt-[clamp(1rem,3.4vh,1.75rem)] dark:text-white"
+          className="group mt-7 inline-flex h-12 items-center gap-2   divide-x divide-white/10 dark:divide-slate-700/10 rounded-xl border-2 border-white dark:border-white/60 bg-blue-800 p-2 shadow-[5px_5px_0_0_#c96b7c]  hover:bg-blue-800 hover:-translate-y-0.5 hover:shadow-[7px_7px_0_0_#7a1724] focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300 dark:focus-visible:ring-blue-700 active:translate-x-0.5 active:translate-y-0.5 active:shadow-none motion-reduce:transition-none lg:mt-[clamp(1rem,3.4vh,1.75rem)] dark:text-white"
         >
           Start searching
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" />
         </Button>
       </div>
 
-      <div className="rounded-2xl border-2 border-blue-800 bg-slate-50 dark:border-white/60 dark:bg-slate-900 p-5 shadow-[6px_6px_0_0_#1e40af]">
+      <div className="rounded-2xl border-2 border-blue-800 bg-slate-50 dark:border-white/60 dark:bg-slate-900 p-5 shadow-[6px_6px_0_0_#7a1724]">
         <div className="flex gap-2 rounded-2xl bg-white dark:bg-slate-900 p-2 shadow-sm">
           <div className="flex min-w-0 flex-1 items-center gap-2 rounded-xl border border-slate-200 dark:border-slate-700 px-3 text-sm text-slate-500 dark:text-slate-400">
             <Search className="h-4 w-4 shrink-0" />

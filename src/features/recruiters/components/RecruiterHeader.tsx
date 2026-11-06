@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import ThemeToggle from '@/components/common/ThemeToggle';
+import SchoolBrand from '@/components/common/SchoolBrand';
 import { Button } from '@/components/ui/button';
 import { Link, NavLink } from 'react-router-dom';
 import { ArrowRightIcon, MenuIcon, XIcon } from 'lucide-react';
-
-const logoSrc = '/frontendImages/LOGO.png';
 
 const navItems = [
   { to: '/employer/post-job', label: 'Post Job' },
@@ -32,11 +31,7 @@ const RecruiterHeader = () => {
           className="flex shrink-0 items-center"
           onClick={() => setMenuOpen(false)}
         >
-          <img
-            src={logoSrc}
-            alt="Demo School"
-            className="h-10 w-auto bg-white rounded-md"
-          />
+          <SchoolBrand compact />
         </Link>
 
         {/* Desktop navigation */}

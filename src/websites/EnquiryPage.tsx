@@ -2,7 +2,6 @@ import { FormEvent, useState } from 'react';
 import {
   ArrowLeft,
   Clock3,
-  GraduationCap,
   Mail,
   Phone,
   Send,
@@ -10,6 +9,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FormField from '@/components/common/FormField';
+import SchoolBrand from '@/components/common/SchoolBrand';
 import { Button } from '@/components/ui/button';
 
 const initialForm = {
@@ -74,14 +74,17 @@ const EnquiryPage = () => {
 
     try {
       const storedLeads = JSON.parse(
-        localStorage.getItem('demo-school-enquiry-leads') || '[]'
+        localStorage.getItem('kd-public-school-enquiry-leads') || '[]'
       ) as unknown[];
       localStorage.setItem(
-        'demo-school-enquiry-leads',
+        'kd-public-school-enquiry-leads',
         JSON.stringify([...storedLeads, lead])
       );
     } catch {
-      localStorage.setItem('demo-school-enquiry-leads', JSON.stringify([lead]));
+      localStorage.setItem(
+        'kd-public-school-enquiry-leads',
+        JSON.stringify([lead])
+      );
     }
 
     setForm(initialForm);
@@ -90,7 +93,7 @@ const EnquiryPage = () => {
   };
 
   return (
-    <div className="enquiry-page-enter min-h-screen bg-[#f3f0e8] text-slate-800">
+    <div className="enquiry-page-enter min-h-screen bg-[#f7f3e8] text-slate-800">
       <style>{`
         @keyframes enquiry-page-enter {
           from { opacity: 0; transform: translateY(18px); }
@@ -105,24 +108,14 @@ const EnquiryPage = () => {
           <Link
             to="/"
             className="flex items-center gap-3"
-            aria-label="Demo School home"
+            aria-label="KD Public School home"
           >
-            <span className="flex h-11 w-11 items-center justify-center bg-[#17352f] text-[#f4c65f]">
-              <GraduationCap className="h-6 w-6" aria-hidden="true" />
-            </span>
-            <span>
-              <strong className="block font-serif text-xl leading-none text-[#17352f]">
-                Demo School
-              </strong>
-              <small className="mt-1 block text-[10px] font-semibold uppercase tracking-[.18em] text-slate-500">
-                Admission enquiry
-              </small>
-            </span>
+            <SchoolBrand />
           </Link>
           <Button
             asChild
             variant="outline"
-            className="border-[#17352f] text-[#17352f]"
+            className="border-[#071f3d] text-[#071f3d]"
           >
             <Link to="/">
               <ArrowLeft aria-hidden="true" /> Back home
@@ -132,8 +125,8 @@ const EnquiryPage = () => {
       </header>
 
       <main className="mx-auto grid max-w-7xl items-start gap-8 px-5 py-10 lg:grid-cols-[.72fr_1.28fr] lg:px-8 lg:py-16">
-        <section className="rounded-lg bg-[#17352f] p-7 text-white shadow-sm sm:p-10">
-          <p className="text-xs font-bold uppercase tracking-[.18em] text-[#f4c65f]">
+        <section className="rounded-lg bg-[#071f3d] p-7 text-white shadow-sm sm:p-10">
+          <p className="text-xs font-bold uppercase tracking-[.18em] text-[#d4a62f]">
             Admissions 2027-28
           </p>
           <h1 className="mt-5 font-serif text-4xl font-semibold leading-tight sm:text-2xl">
@@ -148,7 +141,7 @@ const EnquiryPage = () => {
           <div className="mt-10 grid gap-4">
             <div className="flex gap-4 rounded-md border border-white/15 bg-white/5 p-4">
               <Mail
-                className="mt-0.5 h-5 w-5 shrink-0 text-[#f4c65f]"
+                className="mt-0.5 h-5 w-5 shrink-0 text-[#d4a62f]"
                 aria-hidden="true"
               />
               <div>
@@ -157,15 +150,15 @@ const EnquiryPage = () => {
                 </p>
                 <a
                   className="mt-1 block font-semibold"
-                  href="mailto:admissions@demo-school.edu"
+                  href="mailto:admissions@kdpublicschool.edu"
                 >
-                  admissions@demo-school.edu
+                  admissions@kdpublicschool.edu
                 </a>
               </div>
             </div>
             <div className="flex gap-4 rounded-md border border-white/15 bg-white/5 p-4">
               <Phone
-                className="mt-0.5 h-5 w-5 shrink-0 text-[#f4c65f]"
+                className="mt-0.5 h-5 w-5 shrink-0 text-[#d4a62f]"
                 aria-hidden="true"
               />
               <div>
@@ -182,7 +175,7 @@ const EnquiryPage = () => {
             </div>
             <div className="flex gap-4 rounded-md border border-white/15 bg-white/5 p-4">
               <Clock3
-                className="mt-0.5 h-5 w-5 shrink-0 text-[#f4c65f]"
+                className="mt-0.5 h-5 w-5 shrink-0 text-[#d4a62f]"
                 aria-hidden="true"
               />
               <div>
@@ -196,7 +189,7 @@ const EnquiryPage = () => {
 
           <p className="mt-8 flex items-start gap-3 text-sm leading-6 text-white/70">
             <ShieldCheck
-              className="mt-0.5 h-5 w-5 shrink-0 text-[#f4c65f]"
+              className="mt-0.5 h-5 w-5 shrink-0 text-[#d4a62f]"
               aria-hidden="true"
             />
             Your information is used only to respond to this admission enquiry.
@@ -209,7 +202,7 @@ const EnquiryPage = () => {
         >
           <h2
             id="enquiry-form-title"
-            className="font-serif text-3xl font-semibold text-[#17352f]"
+            className="font-serif text-3xl font-semibold text-[#071f3d]"
           >
             Send an enquiry
           </h2>
@@ -299,7 +292,7 @@ const EnquiryPage = () => {
 
             <div className="mt-5">
               <FormField
-                label="I agree that Demo School may contact me about this enquiry."
+                label="I agree that KD Public School may contact me about this enquiry."
                 name="consent"
                 type="checkbox"
                 value={form.consent}
@@ -330,7 +323,7 @@ const EnquiryPage = () => {
             <Button
               type="submit"
               size="lg"
-              className="mt-6 w-full bg-[#b8751c] font-bold text-white hover:bg-[#975d13]"
+              className="mt-6 w-full bg-[#7a1724] font-bold text-white hover:bg-[#5b101a]"
             >
               <Send aria-hidden="true" /> Send enquiry
             </Button>

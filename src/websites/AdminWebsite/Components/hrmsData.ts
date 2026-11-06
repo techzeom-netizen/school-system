@@ -13,7 +13,7 @@ import {
 export const hrmsHero = {
   pill: 'Free HRMS included',
   title: 'Free HRMS for your company',
-  text: 'Manage staff, attendance and leave with the Demo School ERP.',
+  text: 'Manage staff, attendance and leave with the KD Public School ERP.',
   tag: 'FREE',
 };
 

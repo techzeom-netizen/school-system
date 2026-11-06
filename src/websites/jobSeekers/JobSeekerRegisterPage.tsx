@@ -12,10 +12,9 @@ import {
 import FormField from '@/components/common/FormField';
 import { Button } from '@/components/ui/button';
 import EmailOtpVerificationDialog from '@/components/common/EmailOtpVerificationDialog';
+import SchoolBrand from '@/components/common/SchoolBrand';
 import { userRegistrationService } from '@/services/userRegistration.service';
 import { showSuccessToast } from '@/lib/utils';
-
-const logoSrc = '/frontendImages/LOGO.png';
 
 const benefits = [
   {
@@ -187,11 +186,7 @@ const JobSeekerRegisterPage = () => {
 
         <div className="relative z-10 flex items-center">
           <div>
-            <img
-              src={logoSrc}
-              alt="Demo School"
-              className="h-12 w-auto object-contain bg-white rounded-md"
-            />
+            <SchoolBrand />
           </div>
         </div>
 
@@ -209,7 +204,7 @@ const JobSeekerRegisterPage = () => {
 
           <p className="mt-5 max-w-sm text-base leading-7 text-slate-600 dark:text-slate-300">
             Create your profile, explore new opportunities, and move your career
-            forward with Demo School.
+            forward with KD Public School.
           </p>
 
           <div className="mt-10 space-y-6 xl:mt-12 xl:space-y-8">
@@ -246,16 +241,12 @@ const JobSeekerRegisterPage = () => {
       {/* Registration form panel */}
       <section className="flex flex-col px-5 py-8 sm:px-10 sm:py-10 lg:px-12 xl:px-16">
         <div className="mb-8 -mt-6 md:pt-12 flex items-center justify-center gap-2 lg:hidden">
-          <img
-            src={logoSrc}
-            alt="Demo School"
-            className="h-14 w-auto object-contain bg-white rounded-md"
-          />{' '}
+          <SchoolBrand />
         </div>
 
         <div className="mx-auto w-full mt-12">
           <p className="text-xs font-bold uppercase tracking-[0.25em] text-slate-400">
-            Join Demo School
+            Join KD Public School
           </p>
 
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-700 dark:text-slate-200 sm:text-[38px] sm:leading-tight">
@@ -365,7 +356,7 @@ const JobSeekerRegisterPage = () => {
               to="/?login=true"
               className="mt-2 inline-flex items-center gap-2 font-semibold text-blue-600 dark:text-blue-400 transition hover:text-blue-700 dark:hover:text-blue-400"
             >
-              Sign in to Demo School
+              Sign in to KD Public School
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
