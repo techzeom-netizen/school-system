@@ -40,7 +40,9 @@ const NoticeBoardPage = () => (
           className="border-[#071f3d] text-[#071f3d] dark:text-white"
         >
           <Link to="/">
-            <ArrowLeft aria-hidden="true" /> Back home
+            <ArrowLeft aria-hidden="true" />
+            <span className="md:hidden">Back</span>
+            <span className="hidden md:inline">Back Home</span>
           </Link>
         </Button>
       </div>

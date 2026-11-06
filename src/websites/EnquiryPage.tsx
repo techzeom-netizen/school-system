@@ -125,7 +125,7 @@ const EnquiryPage = () => {
       </header>
 
       <main className="mx-auto grid max-w-7xl items-start gap-8 px-5 py-10 lg:grid-cols-[.72fr_1.28fr] lg:px-8 lg:py-10">
-        <section className="rounded-lg bg-gradient-to-br from-[#4f0f19] via-[#7a1724] to-[#9a3342] p-7 text-white shadow-sm sm:p-10">
+        <section className="rounded-lg bg-gradient-to-br to-[#5f131e] via-[#7a1724] from-[#9a3342] p-7 text-white shadow-sm sm:p-10">
           <p className="text-xs font-bold uppercase tracking-[.18em] text-[#d4a62f]">
             Admissions 2027-28
           </p>

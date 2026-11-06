@@ -13,6 +13,7 @@ import {
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import SchoolBrand from '@/components/common/SchoolBrand';
+import { cn } from '@/lib/utils';
 
 const schoolFacts = [
   { label: 'Established', value: '2026', icon: CalendarDays },
@@ -70,7 +71,9 @@ const AboutUsPage = () => (
           className="border-[#7a1724] text-[#7a1724]"
         >
           <Link to="/">
-            <ArrowLeft aria-hidden="true" /> Back home
+            <ArrowLeft aria-hidden="true" />
+            <span className="md:hidden">Back</span>
+            <span className="hidden md:inline">Back Home</span>
           </Link>
         </Button>
       </div>
@@ -78,17 +81,30 @@ const AboutUsPage = () => (
 
     <main>
       <section className="bg-[#7a1724] py-16 text-white sm:py-20">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <p className="text-xs font-bold uppercase tracking-[.18em] text-[#d4a62f]">
-            Our school
-          </p>
-          <h1 className="mt-4 max-w-3xl text-4xl font-bold leading-tight sm:text-5xl">
-            Knowledge, discipline and excellence since 2026.
-          </h1>
-          <p className="mt-5 max-w-2xl text-base leading-7 text-white/75">
-            KD Public School is a CBSE-affiliated community where children are
-            known, challenged and supported from Nursery through Class XII.
-          </p>
+        <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[1.2fr_.8fr] lg:items-center lg:px-8">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[.18em] text-[#d4a62f]">
+              Our school
+            </p>
+            <h1 className="mt-4 max-w-3xl text-4xl font-bold leading-tight sm:text-5xl">
+              Knowledge, discipline and excellence since 2026.
+            </h1>
+            <p className="mt-5 max-w-2xl text-base leading-7 text-white/75">
+              KD Public School is a CBSE-affiliated community where children are
+              known, challenged and supported from Nursery through Class XII.
+            </p>
+          </div>
+
+          <div className="flex justify-center lg:justify-end">
+            <img
+              src="/frontendImages/KDPublicLogo.png"
+              alt="logo"
+              className={cn(
+                'shrink-0 object-contain h-48 w-48 hidden lg:block'
+              )}
+              aria-hidden="true"
+            />
+          </div>
         </div>
       </section>
 
