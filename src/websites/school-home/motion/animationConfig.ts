@@ -42,6 +42,7 @@ export const staggerItemVariants: Variants = {
   }),
   visible: {
     opacity: 1,
+    x: 0,
     y: 0,
     scale: 1,
     transition: { duration: 0.68, ease: premiumEase },
