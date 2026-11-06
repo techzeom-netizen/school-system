@@ -1,13 +1,23 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
+  ArrowDown,
   ArrowRight,
   ChevronLeft,
   ChevronRight,
   Pause,
   Play,
 } from 'lucide-react';
+import {
+  AnimatePresence,
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import AnimatedHeading from './motion/AnimatedHeading';
+import { fadeUpVariants, premiumEase } from './motion/animationConfig';
 
 const heroSlides = [
   {
@@ -30,11 +40,19 @@ const heroSlides = [
 const HeroSection = () => {
   const [activeSlide, setActiveSlide] = useState(0);
   const [paused, setPaused] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const reduceMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end start'],
+  });
+  const backgroundY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, reduceMotion ? 0 : 70]
+  );
 
   useEffect(() => {
-    const reduceMotion = window.matchMedia(
-      '(prefers-reduced-motion: reduce)'
-    ).matches;
     if (paused || reduceMotion) return;
 
     const interval = window.setInterval(() => {
@@ -42,32 +60,34 @@ const HeroSection = () => {
     }, 6500);
 
     return () => window.clearInterval(interval);
-  }, [paused]);
+  }, [paused, reduceMotion]);
 
   return (
     <section
+      ref={sectionRef}
       className="relative min-h-[560px] overflow-hidden bg-[#071f3d] text-white"
-      data-reveal
       aria-roledescription="carousel"
       aria-label="KD Public School highlights"
     >
-      {heroSlides.map((slide, index) => (
-        <div
-          key={slide.image}
-          className={`absolute inset-0 transition-opacity duration-700 ${
-            index === activeSlide ? 'opacity-100' : 'opacity-0'
-          }`}
-          aria-hidden={index !== activeSlide}
+      <AnimatePresence mode="sync">
+        <motion.div
+          key={heroSlides[activeSlide].image}
+          className="absolute -inset-y-16 inset-x-0"
+          style={{ y: backgroundY }}
+          initial={{ opacity: 0, scale: 1.025 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.85, ease: premiumEase }}
         >
           <img
-            src={slide.image}
-            alt={index === activeSlide ? slide.caption : ''}
-            loading={index === 0 ? 'eager' : 'lazy'}
+            src={heroSlides[activeSlide].image}
+            alt={heroSlides[activeSlide].caption}
+            loading={activeSlide === 0 ? 'eager' : 'lazy'}
             decoding="async"
             className="h-full w-full object-cover"
           />
-        </div>
-      ))}
+        </motion.div>
+      </AnimatePresence>
       <div
         className="absolute inset-0 bg-gradient-to-r from-[#071b33]/82 via-[#071b33]/48 to-transparent"
         aria-hidden="true"
@@ -76,20 +96,52 @@ const HeroSection = () => {
         className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-transparent"
         aria-hidden="true"
       />
+      <motion.div
+        className="absolute -left-20 top-20 size-56 rounded-full bg-[#d4a62f]/10 blur-3xl"
+        animate={
+          reduceMotion
+            ? undefined
+            : { x: [0, 26, 0], y: [0, -18, 0], opacity: [0.3, 0.5, 0.3] }
+        }
+        transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
+        aria-hidden="true"
+      />
 
       <div className="relative z-10 mx-auto flex min-h-[560px] max-w-7xl flex-col justify-center px-5 py-20 lg:px-8">
-        <div className="max-w-2xl">
-          <p className="inline-flex rounded-full border border-white/25 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[.16em] text-[#d4a62f] backdrop-blur-sm">
+        <motion.div
+          className="max-w-2xl"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {},
+            visible: {
+              transition: { staggerChildren: 0.14, delayChildren: 0.12 },
+            },
+          }}
+        >
+          <motion.p
+            variants={fadeUpVariants}
+            className="inline-flex rounded-full border border-white/25 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[.16em] text-[#d4a62f] backdrop-blur-sm"
+          >
             CBSE · Nursery to Class XII
-          </p>
-          <h1 className="mt-6 max-w-xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+          </motion.p>
+          <AnimatedHeading
+            as="h1"
+            className="mt-6 max-w-xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl"
+          >
             A school where every child can learn with confidence.
-          </h1>
-          <p className="mt-5 max-w-xl text-base leading-7 text-white/80 sm:text-lg">
+          </AnimatedHeading>
+          <motion.p
+            variants={fadeUpVariants}
+            className="mt-5 max-w-xl text-base leading-7 text-white/80 sm:text-lg"
+          >
             Thoughtful teaching, practical learning and a caring community help
             students build strong foundations for the future.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          </motion.p>
+          <motion.div
+            variants={fadeUpVariants}
+            className="mt-8 flex flex-wrap gap-3"
+          >
             <Button
               asChild
               size="lg"
@@ -107,8 +159,20 @@ const HeroSection = () => {
             >
               <Link to="/enquiry">Admission enquiry</Link>
             </Button>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
+
+        <motion.div
+          className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-1 text-white/60 md:flex"
+          animate={reduceMotion ? undefined : { y: [0, 6, 0] }}
+          transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+          aria-hidden="true"
+        >
+          <span className="text-[10px] font-bold uppercase tracking-[.16em]">
+            Scroll
+          </span>
+          <ArrowDown className="size-4" />
+        </motion.div>
 
         <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4 lg:left-8 lg:right-8">
           <div>

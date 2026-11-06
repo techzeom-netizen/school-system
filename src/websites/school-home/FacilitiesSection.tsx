@@ -6,6 +6,14 @@ import {
   ShieldCheck,
   Trophy,
 } from 'lucide-react';
+import { motion } from 'framer-motion';
+import AnimatedHeading from './motion/AnimatedHeading';
+import {
+  DirectionalReveal,
+  RevealSection,
+  StaggerGroup,
+} from './motion/MotionPrimitives';
+import { staggerItemVariants } from './motion/animationConfig';
 
 const facilities = [
   {
@@ -41,19 +49,27 @@ const facilities = [
 ];
 
 const FacilitiesSection = () => (
-  <section id="facilities" className="bg-white py-20 lg:py-24" data-reveal>
+  <RevealSection
+    id="facilities"
+    direction="left"
+    className="bg-white py-20 lg:py-24"
+  >
     <div className="mx-auto max-w-7xl px-5 lg:px-8">
-      <p className="text-sm font-bold uppercase tracking-[.18em] text-[#7a1724]">
-        Our campus
-      </p>
-      <h2 className="mt-2 text-2xl font-semibold text-[#071f3d] sm:text-3xl">
-        Campus facilities
-      </h2>
-      <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-        {facilities.map(({ title, text, icon: Icon }) => (
-          <article
+      <DirectionalReveal direction="right">
+        <p className="text-sm font-bold uppercase tracking-[.18em] text-[#7a1724]">
+          Our campus
+        </p>
+        <AnimatedHeading className="mt-2 text-2xl font-semibold text-[#071f3d] sm:text-3xl">
+          Campus facilities
+        </AnimatedHeading>
+      </DirectionalReveal>
+      <StaggerGroup className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {facilities.map(({ title, text, icon: Icon }, index) => (
+          <motion.article
             key={title}
-            className="flex min-h-40 gap-4 border border-slate-200 border-l-4 border-l-[#7a1724] bg-[#fbf8f0] p-6"
+            custom={(['left', 'down', 'right'] as const)[index % 3]}
+            variants={staggerItemVariants}
+            className="premium-card flex min-h-40 gap-4 border border-slate-200 border-l-4 border-l-[#7a1724] bg-[#fbf8f0] p-6"
           >
             <Icon
               className="h-7 w-7 shrink-0 text-[#7a1724]"
@@ -64,11 +80,11 @@ const FacilitiesSection = () => (
               <h3 className="text-xl font-semibold text-[#071f3d]">{title}</h3>
               <p className="mt-3 text-sm leading-6 text-slate-600">{text}</p>
             </div>
-          </article>
+          </motion.article>
         ))}
-      </div>
+      </StaggerGroup>
     </div>
-  </section>
+  </RevealSection>
 );
 
 export default FacilitiesSection;

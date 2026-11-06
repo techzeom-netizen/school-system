@@ -1,13 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
-import {
-  ArrowLeft,
-  BookOpen,
-  Check,
-  Copy,
-  GraduationCap,
-  ShieldCheck,
-} from 'lucide-react';
+import { ArrowLeft, BookOpen, GraduationCap, ShieldCheck } from 'lucide-react';
 import FormField from '@/components/common/FormField';
 import SchoolBrand from '@/components/common/SchoolBrand';
 import { Button } from '@/components/ui/button';
@@ -53,47 +46,6 @@ const getRememberedEmployeeLogin = (): RememberedEmployeeLogin | null => {
   } catch {
     return null;
   }
-};
-
-const CredentialRow = ({ label, value }: { label: string; value: string }) => {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(value);
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 2000);
-    } catch {
-      // The visible value can still be copied manually.
-    }
-  };
-
-  return (
-    <div className="flex items-center justify-between rounded-lg border border-[#d9e0e8] bg-[#f7faf8] px-4 py-3">
-      <div className="min-w-0">
-        <p className="text-[10px] font-bold uppercase tracking-[.14em] text-slate-500">
-          {label}
-        </p>
-        <p className="mt-1 break-all font-mono text-sm font-semibold text-[#7a1724]">
-          {value}
-        </p>
-      </div>
-      <Button
-        type="button"
-        variant="ghost"
-        size="icon"
-        className="ml-3 shrink-0 text-[#4b5f78] hover:bg-[#f5efe0] hover:text-[#7a1724]"
-        onClick={() => void handleCopy()}
-        aria-label={`Copy ${label}`}
-      >
-        {copied ? (
-          <Check className="h-4 w-4" aria-hidden="true" />
-        ) : (
-          <Copy className="h-4 w-4" aria-hidden="true" />
-        )}
-      </Button>
-    </div>
-  );
 };
 
 const LoginPage: React.FC = () => {
@@ -228,8 +180,7 @@ const LoginPage: React.FC = () => {
                 <SchoolBrand large />
               </Link>
             </div>
-
-            <div className="relative overflow-hidden rounded-[1.75rem] border border-[#d4a62f]/40 bg-white/95 p-6 shadow-[0_22px_65px_rgba(122,23,36,.14)] sm:p-9">
+            <div>
               <div
                 className="absolute inset-x-0 top-0 h-1 bg-[#d4a62f]"
                 aria-hidden="true"
@@ -244,7 +195,7 @@ const LoginPage: React.FC = () => {
 
               <div className="mt-7">
                 <p className="text-xs font-bold uppercase tracking-[.16em] text-[#7a1724]">
-                  Parent and staff access
+                  Parent access
                 </p>
                 <h2 className="mt-2 text-3xl font-bold tracking-tight text-[#7a1724]">
                   Welcome back
@@ -312,7 +263,7 @@ const LoginPage: React.FC = () => {
                 </Button>
               </form>
 
-              <div className="mt-7 border-t border-slate-200 pt-6">
+              {/* <div className="mt-7 border-t border-slate-200 pt-6">
                 <div className="mb-4">
                   <h3 className="text-sm font-bold text-[#7a1724]">
                     Test access
@@ -328,7 +279,7 @@ const LoginPage: React.FC = () => {
                   />
                   <CredentialRow label="Password" value="password123" />
                 </div>
-              </div>
+              </div> */}
             </div>
 
             <p className="mt-5 text-center text-xs text-slate-500">

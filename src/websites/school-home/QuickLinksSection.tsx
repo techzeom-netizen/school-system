@@ -9,8 +9,16 @@ import {
   MapPin,
   type LucideIcon,
 } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import HomeSectionLink from './HomeSectionLink';
+import AnimatedHeading from './motion/AnimatedHeading';
+import {
+  DirectionalReveal,
+  RevealSection,
+  StaggerGroup,
+} from './motion/MotionPrimitives';
+import { staggerItemVariants } from './motion/animationConfig';
 
 type QuickLink = {
   title: string;
@@ -78,21 +86,25 @@ const quickLinks: QuickLink[] = [
 ];
 
 const QuickLinksSection = () => (
-  <section id="quick-links" className="bg-white py-20 lg:py-24" data-reveal>
+  <RevealSection
+    id="quick-links"
+    direction="right"
+    className="bg-white py-20 lg:py-24"
+  >
     <div className="mx-auto max-w-7xl px-5 lg:px-8">
-      <div>
+      <DirectionalReveal direction="left">
         <p className="text-sm font-bold uppercase tracking-[.18em] text-[#7a1724]">
           Explore
         </p>
-        <h2 className="mt-2 text-2xl font-semibold text-[#071f3d] sm:text-3xl">
+        <AnimatedHeading className="mt-2 text-2xl font-semibold text-[#071f3d] sm:text-3xl">
           Quick links
-        </h2>
+        </AnimatedHeading>
         <p className="mt-4 text-base text-slate-600">
           What parents and students look for most.
         </p>
-      </div>
-      <div className="mt-10 grid grid-cols-1 border-l border-t border-slate-200 sm:grid-cols-2 lg:grid-cols-4">
-        {quickLinks.map(link => {
+      </DirectionalReveal>
+      <StaggerGroup className="mt-10 grid grid-cols-1 border-l border-t border-slate-200 sm:grid-cols-2 lg:grid-cols-4">
+        {quickLinks.map((link, index) => {
           const { title, caption, icon: Icon } = link;
           const content = (
             <>
@@ -112,23 +124,34 @@ const QuickLinksSection = () => (
           const className =
             'group min-h-40 border-b border-r border-slate-200 bg-white p-6 transition-colors hover:bg-[#7a1724] focus-visible:bg-[#7a1724] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4a62f]';
 
-          return link.kind === 'section' ? (
-            <HomeSectionLink
+          return (
+            <motion.div
               key={title}
-              sectionId={link.sectionId}
-              className={className}
+              custom={(['left', 'down', 'up', 'right'] as const)[index % 4]}
+              variants={staggerItemVariants}
+              className="h-full"
             >
-              {content}
-            </HomeSectionLink>
-          ) : (
-            <Link key={title} to={link.to} className={className}>
-              {content}
-            </Link>
+              {link.kind === 'section' ? (
+                <HomeSectionLink
+                  sectionId={link.sectionId}
+                  className={`${className} premium-card block h-full`}
+                >
+                  {content}
+                </HomeSectionLink>
+              ) : (
+                <Link
+                  to={link.to}
+                  className={`${className} premium-card block h-full`}
+                >
+                  {content}
+                </Link>
+              )}
+            </motion.div>
           );
         })}
-      </div>
+      </StaggerGroup>
     </div>
-  </section>
+  </RevealSection>
 );
 
 export default QuickLinksSection;

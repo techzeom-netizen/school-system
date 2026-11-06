@@ -1,19 +1,23 @@
+import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
+import AnimatedHeading from './motion/AnimatedHeading';
+import { RevealSection, StaggerGroup } from './motion/MotionPrimitives';
+import { staggerItemVariants } from './motion/animationConfig';
 
 const AdmissionsSection = () => (
-  <section
+  <RevealSection
     id="admissions"
+    direction="right"
     className="bg-gradient-to-br from-[#4f0f19] via-[#7a1724] to-[#9a3342] py-20 text-white lg:py-24"
-    data-reveal
   >
-    <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[1.1fr_.9fr] lg:items-start lg:px-8">
-      <div>
+    <StaggerGroup className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[1.1fr_.9fr] lg:items-start lg:px-8">
+      <motion.div custom="left" variants={staggerItemVariants}>
         <p className="text-sm font-bold uppercase tracking-[.18em] text-[#d4a62f]">
           Admissions
         </p>
-        <h2 className="mt-2 text-2xl font-semibold sm:text-3xl">
+        <AnimatedHeading className="mt-2 text-2xl font-semibold sm:text-3xl">
           We would be pleased to meet your family.
-        </h2>
+        </AnimatedHeading>
         <p className="mt-3 max-w-xl text-base leading-7 text-white/75">
           The best way to understand KD Public School is to visit. Our
           admissions team can answer questions about year groups, the school
@@ -38,8 +42,12 @@ const AdmissionsSection = () => (
             <a href="tel:+919876543210">+91 98765 43210</a>
           </Button>
         </div>
-      </div>
-      <div className="border border-white/20 p-7">
+      </motion.div>
+      <motion.div
+        custom="right"
+        variants={staggerItemVariants}
+        className="premium-card border border-white/20 p-7"
+      >
         <p className="text-sm font-bold uppercase tracking-[.18em] text-[#d4a62f]">
           Next open morning
         </p>
@@ -49,9 +57,9 @@ const AdmissionsSection = () => (
           A short tour, a conversation with our team and time to see the school
           in action.
         </p>
-      </div>
-    </div>
-  </section>
+      </motion.div>
+    </StaggerGroup>
+  </RevealSection>
 );
 
 export default AdmissionsSection;

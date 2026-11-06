@@ -1,5 +1,11 @@
 import { useState } from 'react';
 import { ChevronDown, Menu, X } from 'lucide-react';
+import {
+  AnimatePresence,
+  motion,
+  useMotionValueEvent,
+  useScroll,
+} from 'framer-motion';
 import { Link } from 'react-router-dom';
 import SchoolBrand from '@/components/common/SchoolBrand';
 import { Button } from '@/components/ui/button';
@@ -18,11 +24,27 @@ const navigation = [
 
 const SchoolHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const { scrollY } = useScroll();
   const closeMenu = () => setMenuOpen(false);
 
+  useMotionValueEvent(scrollY, 'change', latest => {
+    setScrolled(latest > 24);
+  });
+
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-sm">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-5 px-5 py-2 lg:px-8">
+    <header
+      className={`sticky top-0 z-50 transition-[background-color,box-shadow] duration-300 ${
+        scrolled
+          ? 'bg-white/95 shadow-lg backdrop-blur-xl'
+          : 'bg-white shadow-sm'
+      }`}
+    >
+      <div
+        className={`mx-auto flex max-w-7xl items-center justify-between gap-5 px-5 transition-[padding] duration-300 lg:px-8 ${
+          scrolled ? 'py-1' : 'py-2'
+        }`}
+      >
         <HomeSectionLink
           sectionId="top"
           className="flex items-center gap-4"
@@ -54,7 +76,11 @@ const SchoolHeader = () => {
         </Button>
       </div>
 
-      <div className="border-b-4 border-[#D4A62F] bg-gradient-to-br from-[#4f0f19] via-[#7a1724] to-[#9a3342] text-white shadow-md">
+      <div
+        className={`border-b-4 border-[#D4A62F] bg-gradient-to-br from-[#4f0f19] via-[#7a1724] to-[#9a3342] text-white transition-[background-color] duration-300 ${
+          scrolled ? 'shadow-lg backdrop-blur-xl' : 'shadow-md'
+        }`}
+      >
         <div className="mx-auto hidden max-w-7xl items-stretch px-5 lg:flex lg:px-8">
           <nav className="flex items-stretch" aria-label="Main navigation">
             {navigation.map((item, index) => (
@@ -62,7 +88,7 @@ const SchoolHeader = () => {
                 {item.sectionId ? (
                   <HomeSectionLink
                     sectionId={item.sectionId}
-                    className={`flex items-center px-5 py-4 text-sm font-semibold transition-colors hover:bg-white/10 focus-visible:bg-white/10 focus-visible:outline-none ${
+                    className={`relative flex items-center px-5 py-4 text-sm font-semibold transition-colors after:absolute after:bottom-2.5 after:left-5 after:right-5 after:h-0.5 after:origin-left after:scale-x-0 after:bg-[#d4a62f] after:transition-transform after:duration-300 hover:bg-white/10 hover:after:scale-x-100 focus-visible:bg-white/10 focus-visible:outline-none focus-visible:after:scale-x-100 ${
                       index === 0 ? 'bg-white/10' : ''
                     }`}
                   >
@@ -71,7 +97,7 @@ const SchoolHeader = () => {
                 ) : (
                   <Link
                     to={item.to}
-                    className="flex items-center px-5 py-4 text-sm font-semibold transition-colors hover:bg-white/10 focus-visible:bg-white/10 focus-visible:outline-none"
+                    className="relative flex items-center px-5 py-4 text-sm font-semibold transition-colors after:absolute after:bottom-2.5 after:left-5 after:right-5 after:h-0.5 after:origin-left after:scale-x-0 after:bg-[#d4a62f] after:transition-transform after:duration-300 hover:bg-white/10 hover:after:scale-x-100 focus-visible:bg-white/10 focus-visible:outline-none focus-visible:after:scale-x-100"
                   >
                     {item.label}
                   </Link>
@@ -101,61 +127,69 @@ const SchoolHeader = () => {
           </div>
         </div>
 
-        {menuOpen && (
-          <div className="px-5 pb-5 lg:hidden">
-            <nav className="flex flex-col" aria-label="Mobile navigation">
-              {navigation.map(item => (
-                <span key={`${item.to}-${item.label}`} className="contents">
-                  {item.sectionId ? (
-                    <HomeSectionLink
-                      sectionId={item.sectionId}
-                      onClick={closeMenu}
-                      className="border-b border-white/15 py-3 text-sm font-semibold"
-                    >
-                      {item.label}
-                    </HomeSectionLink>
-                  ) : (
-                    <Link
-                      to={item.to}
-                      onClick={closeMenu}
-                      className="border-b border-white/15 py-3 text-sm font-semibold"
-                    >
-                      {item.label}
-                    </Link>
-                  )}
-                </span>
-              ))}
-            </nav>
-            <div className="mt-4 grid grid-cols-2 gap-3">
-              <Button
-                asChild
-                variant="outline"
-                className="border-white/40 bg-transparent text-white hover:bg-white/10 hover:text-white"
-              >
-                <Link to="/superadmin/login" onClick={closeMenu}>
-                  Administration
-                </Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                className="border-white/40 bg-transparent text-white hover:bg-white/10 hover:text-white"
-              >
-                <Link to="/login" onClick={closeMenu}>
-                  Parents
-                </Link>
-              </Button>
-              <Button
-                asChild
-                className="col-span-2 bg-[#d4a62f] font-bold text-[#071f3d] hover:bg-[#e0bb54]"
-              >
-                <Link to="/enquiry" onClick={closeMenu}>
-                  Enquire now
-                </Link>
-              </Button>
-            </div>
-          </div>
-        )}
+        <AnimatePresence initial={false}>
+          {menuOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              className="overflow-hidden px-5 pb-5 lg:hidden"
+            >
+              <nav className="flex flex-col" aria-label="Mobile navigation">
+                {navigation.map(item => (
+                  <span key={`${item.to}-${item.label}`} className="contents">
+                    {item.sectionId ? (
+                      <HomeSectionLink
+                        sectionId={item.sectionId}
+                        onClick={closeMenu}
+                        className="border-b border-white/15 py-3 text-sm font-semibold"
+                      >
+                        {item.label}
+                      </HomeSectionLink>
+                    ) : (
+                      <Link
+                        to={item.to}
+                        onClick={closeMenu}
+                        className="border-b border-white/15 py-3 text-sm font-semibold"
+                      >
+                        {item.label}
+                      </Link>
+                    )}
+                  </span>
+                ))}
+              </nav>
+              <div className="mt-4 grid grid-cols-2 gap-3">
+                <Button
+                  asChild
+                  variant="outline"
+                  className="border-white/40 bg-transparent text-white hover:bg-white/10 hover:text-white"
+                >
+                  <Link to="/superadmin/login" onClick={closeMenu}>
+                    Administration
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="border-white/40 bg-transparent text-white hover:bg-white/10 hover:text-white"
+                >
+                  <Link to="/login" onClick={closeMenu}>
+                    Parents
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  className="col-span-2 bg-[#d4a62f] font-bold text-[#071f3d] hover:bg-[#e0bb54]"
+                >
+                  <Link to="/enquiry" onClick={closeMenu}>
+                    Enquire now
+                  </Link>
+                </Button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   );

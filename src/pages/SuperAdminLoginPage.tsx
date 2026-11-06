@@ -1,18 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import {
   ArrowLeft,
-  Check,
   ClipboardCheck,
-  Copy,
-  KeyRound,
   LockKeyhole,
   ShieldCheck,
   Users,
 } from 'lucide-react';
 import { LoginForm } from '@/components/auth';
 import SchoolBrand from '@/components/common/SchoolBrand';
-import { Button } from '@/components/ui/button';
 import { useAuth } from '@/hooks/useAuth';
 import { getRoleDashboardPath } from '@/utils/roleUtils';
 import { LoginCredentials } from '@/types';
@@ -22,23 +18,13 @@ const TEMP_SUPER_ADMIN_CREDENTIALS = {
   password: 'SchoolSystem@12345',
 } as const;
 
-type CredentialKey = keyof typeof TEMP_SUPER_ADMIN_CREDENTIALS;
-
 const SuperAdminLoginPage: React.FC = () => {
   const { login, isAuthenticated, user, error, isLoading } = useAuth();
-  const [copiedCredential, setCopiedCredential] =
-    useState<CredentialKey | null>(null);
 
   useEffect(() => {
     document.body.classList.add('no-navbar');
     return () => document.body.classList.remove('no-navbar');
   }, []);
-
-  useEffect(() => {
-    if (!copiedCredential) return;
-    const timeoutId = window.setTimeout(() => setCopiedCredential(null), 1800);
-    return () => window.clearTimeout(timeoutId);
-  }, [copiedCredential]);
 
   if (isAuthenticated && user) {
     return <Navigate to={getRoleDashboardPath(user.role)} replace />;
@@ -49,15 +35,6 @@ const SuperAdminLoginPage: React.FC = () => {
       await login(credentials);
     } catch {
       // AuthContext exposes the API error to the form.
-    }
-  };
-
-  const copyCredential = async (key: CredentialKey) => {
-    try {
-      await navigator.clipboard.writeText(TEMP_SUPER_ADMIN_CREDENTIALS[key]);
-      setCopiedCredential(key);
-    } catch {
-      // The visible credentials can still be copied manually.
     }
   };
 
@@ -130,7 +107,7 @@ const SuperAdminLoginPage: React.FC = () => {
               </Link>
             </div>
 
-            <div className="relative overflow-hidden rounded-[1.75rem] border border-[#d4a62f]/40 bg-white/95 p-6 shadow-[0_22px_65px_rgba(122,23,36,.14)] sm:p-9">
+            <div>
               <div
                 className="absolute inset-x-0 top-0 h-1 bg-[#d4a62f]"
                 aria-hidden="true"
@@ -169,7 +146,7 @@ const SuperAdminLoginPage: React.FC = () => {
                 />
               </div>
 
-              <div className="mt-7 border-t border-slate-200 pt-6">
+              {/* <div className="mt-7 border-t border-slate-200 pt-6">
                 <div className="mb-4 flex items-start gap-3">
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#fff3d2] text-[#9d6917]">
                     <KeyRound className="h-4 w-4" aria-hidden="true" />
@@ -220,7 +197,7 @@ const SuperAdminLoginPage: React.FC = () => {
                     </div>
                   ))}
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>

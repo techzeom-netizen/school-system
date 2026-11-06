@@ -10,7 +10,7 @@ import AboutUsPage from '@/websites/AboutUsPage';
 export const NotFoundPage = () => (
   <div className="min-h-screen bg-gray-50 dark:bg-slate-950 text-gray-900 dark:text-slate-100">
     <section className="mx-auto max-w-3xl px-4 py-16 text-center">
-      <CheckCircle2 className="mx-auto h-10 w-10 text-blue-700" />
+      <CheckCircle2 className="mx-auto h-10 w-10 text-[#7a1724]" />
       <h1 className="mt-4 text-3xl font-bold text-gray-950 dark:text-slate-100">
         Page not found
       </h1>
