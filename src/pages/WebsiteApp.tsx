@@ -3,6 +3,9 @@ import { CheckCircle2 } from 'lucide-react';
 import { Link, Route, Routes } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import SchoolHomePage from '@/websites/SchoolHomePage';
+import NoticeBoardPage from '@/websites/NoticeBoardPage';
+import EnquiryPage from '@/websites/EnquiryPage';
+import AboutUsPage from '@/websites/AboutUsPage';
 
 export const NotFoundPage = () => (
   <div className="min-h-screen bg-gray-50 dark:bg-slate-950 text-gray-900 dark:text-slate-100">
@@ -25,6 +28,9 @@ const WebsiteApp: React.FC = () => {
   return (
     <Routes>
       <Route index element={<SchoolHomePage />} />
+      <Route path="notice-board" element={<NoticeBoardPage />} />
+      <Route path="enquiry" element={<EnquiryPage />} />
+      <Route path="about-us" element={<AboutUsPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
