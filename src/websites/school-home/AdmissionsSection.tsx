@@ -7,8 +7,8 @@ import { staggerItemVariants } from './motion/animationConfig';
 const AdmissionsSection = () => (
   <RevealSection
     id="admissions"
-    direction="right"
-    className="bg-gradient-to-br from-[#4f0f19] via-[#7a1724] to-[#9a3342] py-20 text-white lg:py-24"
+    className="bg-gradient-to-br to-[#5c141e] via-[#7a1724] from-[#9a3342] py-20 text-white lg:py-24"
+    data-reveal
   >
     <StaggerGroup className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[1.1fr_.9fr] lg:items-start lg:px-8">
       <motion.div custom="left" variants={staggerItemVariants}>
