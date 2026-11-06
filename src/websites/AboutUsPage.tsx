@@ -69,7 +69,7 @@ const AboutUsPage = () => (
           variant="outline"
           className="border-[#7a1724] text-[#7a1724]"
         >
-          <Link to="/#about">
+          <Link to="/">
             <ArrowLeft aria-hidden="true" /> Back home
           </Link>
         </Button>

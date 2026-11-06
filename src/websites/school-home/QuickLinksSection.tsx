@@ -7,55 +7,72 @@ import {
   FileBadge,
   GraduationCap,
   MapPin,
+  type LucideIcon,
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import HomeSectionLink from './HomeSectionLink';
 
-const quickLinks = [
+type QuickLink = {
+  title: string;
+  caption: string;
+  icon: LucideIcon;
+} & ({ kind: 'section'; sectionId: string } | { kind: 'route'; to: string });
+
+const quickLinks: QuickLink[] = [
   {
+    kind: 'section',
     title: 'Admission',
     caption: 'Process and dates',
-    href: '#admissions',
+    sectionId: 'admissions',
     icon: ClipboardCheck,
   },
   {
+    kind: 'section',
     title: 'Fee structure',
     caption: 'Class-wise fees',
-    href: '#academics',
+    sectionId: 'academics',
     icon: FileBadge,
   },
   {
+    kind: 'route',
     title: 'Downloads',
     caption: 'Forms and circulars',
-    href: '#notice-board',
+    to: '/notice-board',
     icon: Download,
   },
   {
+    kind: 'route',
     title: 'Mandatory disclosure',
     caption: 'CBSE public information',
-    href: '#about',
+    to: '/about-us',
     icon: CheckCircle2,
   },
   {
+    kind: 'section',
     title: 'Results',
     caption: 'Board performance',
-    href: '#academics',
+    sectionId: 'academics',
     icon: Award,
   },
   {
+    kind: 'section',
     title: 'Transfer certificate',
     caption: 'Request and verify',
-    href: '#contact',
+    sectionId: 'contact',
     icon: GraduationCap,
   },
   {
+    kind: 'section',
     title: 'Transport',
     caption: 'Routes and timings',
-    href: '#facilities',
+    sectionId: 'facilities',
     icon: Bus,
   },
   {
+    kind: 'section',
     title: 'Contact',
     caption: 'Address and map',
-    href: '#contact',
+    sectionId: 'contact',
     icon: MapPin,
   },
 ];
@@ -75,25 +92,40 @@ const QuickLinksSection = () => (
         </p>
       </div>
       <div className="mt-10 grid grid-cols-1 border-l border-t border-slate-200 sm:grid-cols-2 lg:grid-cols-4">
-        {quickLinks.map(({ title, caption, href, icon: Icon }) => (
-          <a
-            key={title}
-            href={href}
-            className="group min-h-40 border-b border-r border-slate-200 bg-white p-6 transition-colors hover:bg-[#7a1724] focus-visible:bg-[#7a1724] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4a62f]"
-          >
-            <Icon
-              className="h-7 w-7 text-[#7a1724] transition-colors group-hover:text-[#d4a62f] group-focus-visible:text-[#d4a62f]"
-              strokeWidth={1.7}
-              aria-hidden="true"
-            />
-            <h3 className="mt-8 text-xl font-semibold text-[#071f3d] group-hover:text-white group-focus-visible:text-white">
-              {title}
-            </h3>
-            <p className="mt-1 text-sm text-slate-500 group-hover:text-white/70 group-focus-visible:text-white/70">
-              {caption}
-            </p>
-          </a>
-        ))}
+        {quickLinks.map(link => {
+          const { title, caption, icon: Icon } = link;
+          const content = (
+            <>
+              <Icon
+                className="h-7 w-7 text-[#7a1724] transition-colors group-hover:text-[#d4a62f] group-focus-visible:text-[#d4a62f]"
+                strokeWidth={1.7}
+                aria-hidden="true"
+              />
+              <h3 className="mt-8 text-xl font-semibold text-[#071f3d] group-hover:text-white group-focus-visible:text-white">
+                {title}
+              </h3>
+              <p className="mt-1 text-sm text-slate-500 group-hover:text-white/70 group-focus-visible:text-white/70">
+                {caption}
+              </p>
+            </>
+          );
+          const className =
+            'group min-h-40 border-b border-r border-slate-200 bg-white p-6 transition-colors hover:bg-[#7a1724] focus-visible:bg-[#7a1724] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4a62f]';
+
+          return link.kind === 'section' ? (
+            <HomeSectionLink
+              key={title}
+              sectionId={link.sectionId}
+              className={className}
+            >
+              {content}
+            </HomeSectionLink>
+          ) : (
+            <Link key={title} to={link.to} className={className}>
+              {content}
+            </Link>
+          );
+        })}
       </div>
     </div>
   </section>

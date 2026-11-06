@@ -95,9 +95,9 @@ const HeroSection = () => {
               size="lg"
               className="bg-[#d4a62f] px-6 font-bold text-[#071f3d] hover:bg-[#f0d47a]"
             >
-              <a href="#about">
+              <Link to="/about-us">
                 Explore our school <ArrowRight aria-hidden="true" />
-              </a>
+              </Link>
             </Button>
             <Button
               asChild

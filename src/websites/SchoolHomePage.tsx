@@ -3,6 +3,7 @@ import AboutSection from './school-home/AboutSection';
 import AcademicsSection from './school-home/AcademicsSection';
 import AdmissionsSection from './school-home/AdmissionsSection';
 import CampusLifeSection from './school-home/CampusLifeSection';
+import FaqSection from './school-home/FaqSection';
 import FacilitiesSection from './school-home/FacilitiesSection';
 import HeroSection from './school-home/HeroSection';
 import NoticeBoardSection from './school-home/NoticeBoardSection';
@@ -66,6 +67,7 @@ const SchoolHomePage = () => {
         <AdmissionsSection />
         <NoticeBoardSection />
         <CampusLifeSection />
+        <FaqSection />
       </main>
       <SchoolFooter />
     </div>

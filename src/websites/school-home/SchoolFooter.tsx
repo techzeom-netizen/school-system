@@ -12,6 +12,7 @@ import {
 import { Link } from 'react-router-dom';
 import SchoolBrand from '@/components/common/SchoolBrand';
 import { Button } from '@/components/ui/button';
+import HomeSectionLink from './HomeSectionLink';
 import PortalLoginDropdown from './PortalLoginDropdown';
 
 const SchoolFooter = () => (
@@ -123,15 +124,24 @@ const SchoolFooter = () => (
           <Link to="/about-us" className="transition-colors hover:text-white">
             About the school
           </Link>
-          <a href="#academics" className="transition-colors hover:text-white">
+          <HomeSectionLink
+            sectionId="academics"
+            className="transition-colors hover:text-white"
+          >
             Academics
-          </a>
-          <a href="#facilities" className="transition-colors hover:text-white">
+          </HomeSectionLink>
+          <HomeSectionLink
+            sectionId="facilities"
+            className="transition-colors hover:text-white"
+          >
             Campus facilities
-          </a>
-          <a href="#admissions" className="transition-colors hover:text-white">
+          </HomeSectionLink>
+          <HomeSectionLink
+            sectionId="admissions"
+            className="transition-colors hover:text-white"
+          >
             Admissions
-          </a>
+          </HomeSectionLink>
         </nav>
       </div>
 

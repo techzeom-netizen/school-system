@@ -3,16 +3,17 @@ import { ChevronDown, Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SchoolBrand from '@/components/common/SchoolBrand';
 import { Button } from '@/components/ui/button';
+import HomeSectionLink from './HomeSectionLink';
 import PortalLoginDropdown from './PortalLoginDropdown';
 
 const navigation = [
-  { href: '#top', label: 'Home' },
-  { href: '#about', label: 'About' },
-  { href: '#academics', label: 'Academics' },
-  { href: '#admissions', label: 'Admissions' },
-  { href: '#facilities', label: 'Campus' },
-  { href: '#notice-board', label: 'Notice board' },
-  { href: '#contact', label: 'Contact' },
+  { to: '/', label: 'Home', sectionId: 'top' },
+  { to: '/', label: 'About', sectionId: 'about' },
+  { to: '/', label: 'Academics', sectionId: 'academics' },
+  { to: '/', label: 'Campus', sectionId: 'facilities' },
+  { to: '/', label: 'Admissions', sectionId: 'admissions' },
+  { to: '/', label: 'Notice board', sectionId: 'notice-board' },
+  { to: '/', label: 'Contact', sectionId: 'contact' },
 ];
 
 const SchoolHeader = () => {
@@ -22,13 +23,13 @@ const SchoolHeader = () => {
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-5 px-5 py-2 lg:px-8">
-        <a
-          href="#top"
+        <HomeSectionLink
+          sectionId="top"
           className="flex items-center gap-4"
           aria-label="KD Public School home"
         >
           <SchoolBrand />
-        </a>
+        </HomeSectionLink>
 
         <div className="hidden text-right sm:block">
           <p className="text-sm font-bold text-slate-900">
@@ -57,15 +58,25 @@ const SchoolHeader = () => {
         <div className="mx-auto hidden max-w-7xl items-stretch px-5 lg:flex lg:px-8">
           <nav className="flex items-stretch" aria-label="Main navigation">
             {navigation.map((item, index) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className={`flex items-center px-5 py-4 text-sm font-semibold transition-colors hover:bg-white/10 focus-visible:bg-white/10 focus-visible:outline-none ${
-                  index === 0 ? 'bg-white/10' : ''
-                }`}
-              >
-                {item.label}
-              </a>
+              <span key={`${item.to}-${item.label}`} className="flex">
+                {item.sectionId ? (
+                  <HomeSectionLink
+                    sectionId={item.sectionId}
+                    className={`flex items-center px-5 py-4 text-sm font-semibold transition-colors hover:bg-white/10 focus-visible:bg-white/10 focus-visible:outline-none ${
+                      index === 0 ? 'bg-white/10' : ''
+                    }`}
+                  >
+                    {item.label}
+                  </HomeSectionLink>
+                ) : (
+                  <Link
+                    to={item.to}
+                    className="flex items-center px-5 py-4 text-sm font-semibold transition-colors hover:bg-white/10 focus-visible:bg-white/10 focus-visible:outline-none"
+                  >
+                    {item.label}
+                  </Link>
+                )}
+              </span>
             ))}
           </nav>
 
@@ -94,14 +105,25 @@ const SchoolHeader = () => {
           <div className="px-5 pb-5 lg:hidden">
             <nav className="flex flex-col" aria-label="Mobile navigation">
               {navigation.map(item => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={closeMenu}
-                  className="border-b border-white/15 py-3 text-sm font-semibold"
-                >
-                  {item.label}
-                </a>
+                <span key={`${item.to}-${item.label}`} className="contents">
+                  {item.sectionId ? (
+                    <HomeSectionLink
+                      sectionId={item.sectionId}
+                      onClick={closeMenu}
+                      className="border-b border-white/15 py-3 text-sm font-semibold"
+                    >
+                      {item.label}
+                    </HomeSectionLink>
+                  ) : (
+                    <Link
+                      to={item.to}
+                      onClick={closeMenu}
+                      className="border-b border-white/15 py-3 text-sm font-semibold"
+                    >
+                      {item.label}
+                    </Link>
+                  )}
+                </span>
               ))}
             </nav>
             <div className="mt-4 grid grid-cols-2 gap-3">
