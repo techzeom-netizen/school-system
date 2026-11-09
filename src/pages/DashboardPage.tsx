@@ -26,8 +26,8 @@ const roleContent = {
     ],
     actions: [
       'Review platform health',
-      'Manage companies',
-      'Audit job listings',
+      'Manage Branches',
+      'Audit Students listings',
     ],
   },
   [UserRole.ADMIN]: {
