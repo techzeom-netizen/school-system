@@ -17,28 +17,13 @@ const Footer: React.FC = () => {
             </Link>
             <span className="hidden h-10 w-px bg-white/20 sm:block" />
             <p className="max-w-xs text-xs leading-5 text-white/70">
-              School administration portal for secure academic and operational
-              management.
+              School portal for secure academic and operational management.
             </p>
-          </div>
-
-          <div className="text-xs text-white/70 sm:text-right">
-            <span className="block uppercase tracking-[0.14em] text-[#e8c866]">
-              Technology partner
-            </span>
-            <a
-              href="https://zeksta.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-1 inline-block font-semibold text-white transition-colors hover:text-[#f0d47a] focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4a62f]"
-            >
-              Zeksta Technology
-            </a>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-white/10">
+      {/* <div className="border-t border-white/10">
         <div className="container-responsive flex flex-col gap-1 py-3 text-[11px] text-white/60 sm:flex-row sm:items-center sm:justify-between">
           <p>
             &copy; {new Date().getFullYear()} KD Public School. All rights
@@ -46,7 +31,7 @@ const Footer: React.FC = () => {
           </p>
           <p>Knowledge · Discipline · Excellence</p>
         </div>
-      </div>
+      </div> */}
     </footer>
   );
 };

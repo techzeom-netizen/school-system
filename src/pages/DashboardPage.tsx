@@ -3,23 +3,26 @@ import {
   Briefcase,
   Building2,
   CalendarCheck,
+  CreditCard,
   FileText,
+  GraduationCap,
   Search,
   Users,
 } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import { useAuth } from '@/hooks/useAuth';
 import { UserRole } from '@/types';
 import { getRoleDisplayName } from '@/utils/roleUtils';
 
 const roleContent = {
   [UserRole.SUPER_ADMIN]: {
-    title: 'Platform Command Center',
+    title: 'Adminstration Command Center',
     subtitle:
       'Monitor KD Public School users, staff, parents, and school activity.',
     stats: [
-      ['Active jobs', '1,248', Briefcase],
-      ['Companies', '312', Building2],
-      ['Users', '24.6K', Users],
+      ['Active students', '1,248', Briefcase],
+      ['branches', '32', Building2],
+      ['staff and teachers', '24.6K', Users],
     ],
     actions: [
       'Review platform health',
@@ -48,14 +51,15 @@ const roleContent = {
     actions: ['Browse matched jobs', 'Update resume', 'Track applications'],
   },
   [UserRole.EMPLOYEE]: {
-    title: 'Employer Dashboard',
-    subtitle: 'Post jobs, review applicants, and manage hiring pipelines.',
+    title: 'Parent Dashboard',
+    subtitle:
+      'Stay connected with your children’s learning, attendance, fees, and school updates.',
     stats: [
-      ['Open jobs', '16', Briefcase],
-      ['Applicants', '428', Users],
-      ['Hiring teams', '9', Building2],
+      ['Children enrolled', '2', GraduationCap],
+      ['Attendance this month', '96%', CalendarCheck],
+      ['Pending fees', '₹12,500', CreditCard],
     ],
-    actions: ['Post a new job', 'Review applicants', 'Manage company profile'],
+    actions: ['View attendance', 'Check fee details', 'Read school notices'],
   },
 };
 
@@ -70,7 +74,9 @@ const DashboardPage: React.FC = () => {
     <div className="space-y-8">
       <section className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
         <p className="text-sm font-medium text-blue-600 dark:text-blue-400">
-          {getRoleDisplayName(user.role)}
+          {user.role === UserRole.EMPLOYEE
+            ? 'Parent Portal'
+            : getRoleDisplayName(user.role)}
         </p>
         <h1 className="mt-2 text-3xl font-bold text-gray-900 dark:text-gray-100">
           {content.title}
@@ -107,13 +113,14 @@ const DashboardPage: React.FC = () => {
         </h2>
         <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-3">
           {content.actions.map(action => (
-            <button
+            <Button
               key={action}
               type="button"
-              className="rounded-md border border-gray-200 px-4 py-3 text-left text-sm font-medium text-gray-700 transition hover:border-blue-300 hover:bg-blue-50 dark:border-gray-700 dark:text-gray-200 dark:hover:border-blue-600 dark:hover:bg-blue-900/20"
+              variant="outline"
+              className="h-auto justify-start px-4 py-3 text-left text-sm font-medium"
             >
               {action}
-            </button>
+            </Button>
           ))}
         </div>
       </section>
